@@ -17,31 +17,44 @@ export default {
             portfolioApi: 'api/projects',
             pageQuery: '?page=',
             projects: [],
-            currentPage: null,
-            prevPage: null,
-            nextPage: null,
-            firstPage: null,
-            LastPage: null,
+            currentPage: 1,
+            queryData: null,
+            queryLinks: null,
 
-            dati: null,
-
-            pageLinks: null,
         }
 
     },
 
     methods: {
 
+        navigate(url) {
+            axios.get(url)
+                .then(response => {
+                    console.log(response);
+                    this.projects = response.data.result.data;
+                    this.queryData = response.data.result;
+                    this.queryLinks = response.data.result.links;
+                }).catch(err => {
+                    console.error(err);
+                })
+            this.currentPage = this.queryData.current_page;
+        }
+
     },
 
-    mounted() {
+    created() {
         // CHIAMATA AXIOS QUANDO App E' MOUNTED
-        axios.get(this.baseUrl + this.portfolioApi)
+        axios.get(this.baseUrl + this.portfolioApi,
+            {
+                params: {
+                    page: this.currentPage
+                }
+            })
             .then(response => {
                 console.log(response);
                 this.projects = response.data.result.data;
-                this.dati = response.data.result;
-                this.pageLinks = response.data.result.links;
+                this.queryData = response.data.result;
+                this.queryLinks = response.data.result.links;
             }).catch(err => {
                 console.error(err);
             })
@@ -52,6 +65,11 @@ export default {
 </script>
 
 <template>
+    CURRENT {{ this.queryData.current_page }} <br>
+    prev {{ this.queryData.prev_page_url }} <br>
+    NEXT {{ this.queryData.next_page_url }} <br>
+    {{ this.queryLinks[this.queryData.current_page].url }} <br>
+
     <div class="container">
 
         <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3">
@@ -62,8 +80,8 @@ export default {
 
         <nav aria-label="Page navigation">
             <ul class="pagination    ">
-                <li class="page-item disabled">
-                    <a class="page-link" href="" aria-label="Previous">
+                <li class="page-item">
+                    <a class="page-link" :class="(this.queryData.prev_page_url == null ? 'disabled' : '')" href="#" @click="navigate(this.queryData.prev_page_url)" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -71,7 +89,7 @@ export default {
                 <li class="page-item"><a class="page-link" href="">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="" aria-label="Next">
+                    <a class="page-link" :class="(this.queryData.next_page_url == null ? 'disabled' : '')" href="#" @click="navigate(this.queryData.next_page_url)" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
