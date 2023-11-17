@@ -88,7 +88,7 @@ export default {
         </div>
 
         <h3>My TEST PAGINATION</h3>
-        <nav aria-label="Page navigation" v-if="store.queryData != null">
+        <nav aria-label="Page navigation" class="my-3" v-if="store.queryData != null">
 
             <ul class="pagination">
                 <li class="page-item"
@@ -100,7 +100,7 @@ export default {
             </ul>
         </nav>
 
-        <h3>PAGINATION</h3>
+<!--         <h3>PAGINATION</h3>
         <nav aria-label="Page navigation" v-if="store.queryData != null">
             <ul class="pagination">
                 <li class="page-item">
@@ -120,8 +120,8 @@ export default {
                     </a>
                 </li>
             </ul>
-        </nav>
-    </div>
+        </nav> -->
+    </div> 
 </template>
 
 <style></style>

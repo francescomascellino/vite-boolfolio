@@ -8,7 +8,7 @@ export const store = reactive({
     portfolioApi: 'api/projects',
     pageQuery: '?page=',
     projects: [],
-    currentPage: 1,
+    // currentPage: 1,
     queryData: null,
     queryLinks: null,
 
