@@ -43,8 +43,8 @@ export default {
                 }).catch(err => {
                     console.error(err);
                 })
-            this.currentPage = this.queryData.current_page;
-        }
+            this.store.currentPage = this.store.queryData.current_page;
+        },
 
     },
 
@@ -74,10 +74,10 @@ export default {
 
 <template>
     <!-- DEBUG -->
-    <!-- CURRENT {{ this.queryData.current_page }} <br>
-    prev {{ this.queryData.prev_page_url }} <br>
-    NEXT {{ this.queryData.next_page_url }} <br>
-    {{ this.queryLinks[this.queryData.current_page].url }} <br> -->
+    <!-- CURRENT {{ this.store.queryData.current_page }} <br>
+    prev {{ this.store.queryData.prev_page_url }} <br>
+    NEXT {{ this.store.queryData.next_page_url }} <br>
+    {{ this.store.queryLinks[this.queryData.current_page].url }} <br> -->
 
     <div class="container">
 
@@ -94,13 +94,13 @@ export default {
                 <li class="page-item"
                     :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
                     aria-current="page" v-for="link in store.queryLinks" :key="link.id">
-                    <a class="page-link" href="#" @click="navigate(link.url)"><span> {{ link.label }} </span></a>
+                    <a class="page-link" href="#" @click="navigate(link.url)"><span> {{ link.label.includes('Next &raquo;') ? 'Next' : link.label }} </span></a>
                 </li>
 
             </ul>
         </nav>
 
-<!--         <h3>PAGINATION</h3>
+        <!--         <h3>PAGINATION</h3>
         <nav aria-label="Page navigation" v-if="store.queryData != null">
             <ul class="pagination">
                 <li class="page-item">
@@ -121,7 +121,7 @@ export default {
                 </li>
             </ul>
         </nav> -->
-    </div> 
+    </div>
 </template>
 
 <style></style>
