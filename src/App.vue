@@ -87,15 +87,13 @@ export default {
 
         </div>
 
-        <h3>My TEST PAGINATION</h3>
         <nav aria-label="Page navigation" class="my-3" v-if="store.queryData != null">
 
             <ul class="pagination">
                 <li class="page-item"
                     :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
                     aria-current="page" v-for="link in store.queryLinks" :key="link.id">
-                    <a class="page-link" href="#" @click="navigate(link.url)"><span>
-                            {{ link.label.includes('Next &raquo;') ? 'Next' : link.label }} </span></a>
+                    <a class="page-link" href="#" @click="navigate(link.url)" v-html="link.label"></a>
                 </li>
 
             </ul>
