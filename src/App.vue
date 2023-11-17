@@ -15,7 +15,17 @@ export default {
         return {
             baseurl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
             portfolioApi: 'api/projects',
+            pageQuery: '?page=',
             projects: [],
+            currentPage: null,
+            prevPage: null,
+            nextPage: null,
+            firstPage: null,
+            LastPage: null,
+
+            dati: null,
+
+            pageLinks: null,
         }
 
     },
@@ -29,7 +39,9 @@ export default {
         axios.get(this.baseurl + this.portfolioApi)
             .then(response => {
                 console.log(response);
-                this.projects = response.data.result.data
+                this.projects = response.data.result.data;
+                this.dati = response.data.result;
+                this.pageLinks = response.data.result.links;
             }).catch(err => {
                 console.error(err);
             })
@@ -100,15 +112,18 @@ export default {
         <nav aria-label="Page navigation">
             <ul class="pagination    ">
                 <li class="page-item disabled">
-                    <a class="page-link" href="#" aria-label="Previous">
+                    <a class="page-link" href="" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
+                <div v-for="item in items" :key="item.id">
+                    {{ item }}
+                </div>
                 <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
+                    <a class="page-link" href="" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
@@ -116,7 +131,8 @@ export default {
         </nav>
     </div>
 
-    <ProjectCard msg="This will be the project card component" />
+    <h1>CARD COMPONENT</h1>
+    <ProjectCard :projects="projects" v-for="project in projects" />
 </template>
 
 <style></style>
