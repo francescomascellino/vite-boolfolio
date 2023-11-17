@@ -12,6 +12,11 @@ export default {
 
     methods: {
 
+        // TRASFORMA IL PERCORSO DELL'IMMAGINE LOCALE IN UN URL
+        getPlaceholderImg(url) {
+            return new URL(`${url}`, import.meta.url).href
+        },
+
     }
 
 }
@@ -27,7 +32,7 @@ export default {
             </div>
 
             <img class="img-fluid object-fit-cover" style="height: 300px" :src="this.baseUrl + 'storage/' + project.thumb"
-                :alt="project.title">
+                @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')" :alt="project.title">
 
             <div class="card-body">
                 <p><strong>Description: </strong>{{ project.description }}</p>

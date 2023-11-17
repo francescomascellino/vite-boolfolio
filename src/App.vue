@@ -50,22 +50,22 @@ export default {
 
     created() {
         // CHIAMATA AXIOS QUANDO App E' MOUNTED
-/*         axios.get(this.baseUrl + this.portfolioApi,
-            {
-                params: {
-                    page: this.currentPage
-                }
-            })
-            .then(response => {
-                console.log(response);
-                this.projects = response.data.result.data;
-                this.queryData = response.data.result;
-                this.queryLinks = response.data.result.links;
-            }).catch(err => {
-                console.error(err);
-            }) */
+        /*         axios.get(this.baseUrl + this.portfolioApi,
+                    {
+                        params: {
+                            page: this.currentPage
+                        }
+                    })
+                    .then(response => {
+                        console.log(response);
+                        this.projects = response.data.result.data;
+                        this.queryData = response.data.result;
+                        this.queryLinks = response.data.result.links;
+                    }).catch(err => {
+                        console.error(err);
+                    }) */
 
-            this.store.getProjects()
+        this.store.getProjects()
     }
 
 }
@@ -83,7 +83,7 @@ export default {
 
         <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3">
 
-            <ProjectCard :project="project" :baseUrl=" store.baseUrl" v-for="project in store.projects" />
+            <ProjectCard :project="project" :baseUrl="store.baseUrl" v-for="project in store.projects" />
 
         </div>
 
@@ -109,8 +109,8 @@ export default {
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class="page-item active" :class="(store.queryData.current_page)" aria-current="page"><a class="page-link"
-                        href="#">1</a></li>
+                <li class="page-item active" :class="(store.queryData.current_page)" aria-current="page"><a
+                        class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
