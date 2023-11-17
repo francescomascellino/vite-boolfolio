@@ -1,6 +1,8 @@
 <script>
 import ProjectCard from './components/ProjectCard.vue'
 
+import { store } from './store'
+
 import axios from 'axios'
 
 export default {
@@ -13,6 +15,9 @@ export default {
     data() {
 
         return {
+
+            store,
+
             baseUrl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
             portfolioApi: 'api/projects',
             pageQuery: '?page=',
@@ -44,7 +49,7 @@ export default {
 
     created() {
         // CHIAMATA AXIOS QUANDO App E' MOUNTED
-        axios.get(this.baseUrl + this.portfolioApi,
+/*         axios.get(this.baseUrl + this.portfolioApi,
             {
                 params: {
                     page: this.currentPage
@@ -57,7 +62,8 @@ export default {
                 this.queryLinks = response.data.result.links;
             }).catch(err => {
                 console.error(err);
-            })
+            }) */
+            this.store.getProjects()
     }
 
 }
@@ -75,7 +81,7 @@ export default {
 
         <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3">
 
-            <ProjectCard :project="project" :baseUrl="baseUrl" v-for="project in this.projects" />
+            <ProjectCard :project="project" :baseUrl="baseUrl" v-for="project in store.projects" />
 
         </div>
 
@@ -85,8 +91,8 @@ export default {
             <ul class="pagination">
 
                 <li class="page-item"
-                    :class="(link.label == this.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
-                    aria-current="page" v-for="link in this.queryLinks" :key="link.id">
+                    :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
+                    aria-current="page" v-for="link in store.queryLinks" :key="link.id">
                     <a class="page-link" href="#" @click="navigate(link.url)"><span> {{ link.label }} </span></a>
                 </li>
 
@@ -97,18 +103,18 @@ export default {
         <nav aria-label="Page navigation">
             <ul class="pagination">
                 <li class="page-item">
-                    <a class="page-link" :class="(this.queryData.prev_page_url == null ? 'disabled' : '')" href="#"
-                        @click="navigate(this.queryData.prev_page_url)" aria-label="Previous">
+                    <a class="page-link" :class="(store.queryData.prev_page_url == null ? 'disabled' : '')" href="#"
+                        @click="navigate(store.queryData.prev_page_url)" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class="page-item active" :class="(this.queryData.current_page)" aria-current="page"><a class="page-link"
+                <li class="page-item active" :class="(store.queryData.current_page)" aria-current="page"><a class="page-link"
                         href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" :class="(this.queryData.next_page_url == null ? 'disabled' : '')" href="#"
-                        @click="navigate(this.queryData.next_page_url)" aria-label="Next">
+                    <a class="page-link" :class="(store.queryData.next_page_url == null ? 'disabled' : '')" href="#"
+                        @click="navigate(store.queryData.next_page_url)" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
