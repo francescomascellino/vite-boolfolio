@@ -94,7 +94,8 @@ export default {
                 <li class="page-item"
                     :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
                     aria-current="page" v-for="link in store.queryLinks" :key="link.id">
-                    <a class="page-link" href="#" @click="navigate(link.url)"><span> {{ link.label.includes('Next &raquo;') ? 'Next' : link.label }} </span></a>
+                    <a class="page-link" href="#" @click="navigate(link.url)"><span>
+                            {{ link.label.includes('Next &raquo;') ? 'Next' : link.label }} </span></a>
                 </li>
 
             </ul>
