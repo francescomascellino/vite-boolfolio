@@ -1,7 +1,84 @@
-# Vue 3 + Vite
+## Creazione guidata del progetto
+```bash
+npm create vite @latest (creazione guidata del progetto)
+```
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## crea il template di un progetto all'interno della cartella un cui ci troviamo se usiamo il ".", 
+### altrimenti scriviamo il nome della directory e questa verrà creata nella posizione attuale)
+```bash
+npm create vite@latest . -- --template vue
+```
 
-## Recommended IDE Setup
+## per installare i pacchetti di cui il progetto ha bisogno
+```bash
+npm install
+```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Install Bootstrap. Now we can install Bootstrap. 
+We’ll also install Popper since our dropdowns, popovers, and tooltips depend on it for their positioning. 
+If you don’t plan on using those components, you can omit Popper here.
+```bash
+npm i --save bootstrap @popperjs/core
+```
+
+## Install additional dependency. In addition to Vite and Bootstrap, we need another dependency (Sass) to properly import and bundle Bootstrap’s CSS.
+```bash
+npm i --save-dev sass
+```
+
+## Install Axios
+```bash
+npm install axios
+```
+
+## Per caricare il server e visualizzare la pagina
+```bash
+npm run dev
+```
+
+## Sul terminale chiude il server
+```bash
+CTRL + C sul terminale chiude il server
+```
+
+SPOSTARE style.css in src/assets/scss E MODIFICARE L'ESTENZIONE IN .scss
+
+MODIFICARE L'IMPORTAZIONE IN main.js
+```js
+import './assets/scss/style.scss'
+```
+
+IMPORTARE BOOTSTRAP IN style.scss
+```js
+@use 'bootstrap'
+```
+
+AGGIUNGERE LA STRUTTURA BASE DELL'ESPORTAZIONE DEI METODI DI Vue DENTRO IL TAG SCRIPT IN app.vue
+```js
+import axios from 'axios';
+
+export default {
+    name: 'App',
+    data() {
+
+        return {
+
+        }
+
+    },
+
+    methods: {
+
+    },
+
+    mounted() {
+
+    }
+
+}
+```
+IMPORTARE AXIOS PRIMA DELL'export
+
+```js
+import axios from 'axios';
+```
