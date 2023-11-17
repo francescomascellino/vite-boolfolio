@@ -1,12 +1,11 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ProjectCard from './components/ProjectCard.vue'
 
 export default {
     name: "App",
 
     components: {
-        HelloWorld,
-
+        ProjectCard,
     }
 
 }
@@ -14,8 +13,10 @@ export default {
 </script>
 
 <template>
-    <h1>TEST</h1>
-    <HelloWorld msg="Vite + Vue" />
+
+
+
+    <ProjectCard msg="This will be the project card component" />
 </template>
 
 <style></style>
