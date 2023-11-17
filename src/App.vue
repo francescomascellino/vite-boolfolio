@@ -18,13 +18,14 @@ export default {
 
             store,
 
+            /*          
             baseUrl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
             portfolioApi: 'api/projects',
             pageQuery: '?page=',
             projects: [],
             currentPage: 1,
             queryData: null,
-            queryLinks: null,
+            queryLinks: null, */
 
         }
 
@@ -36,9 +37,9 @@ export default {
             axios.get(url)
                 .then(response => {
                     console.log(response);
-                    this.projects = response.data.result.data;
-                    this.queryData = response.data.result;
-                    this.queryLinks = response.data.result.links;
+                    this.store.projects = response.data.result.data;
+                    this.store.queryData = response.data.result;
+                    this.store.queryLinks = response.data.result.links;
                 }).catch(err => {
                     console.error(err);
                 })
@@ -63,6 +64,7 @@ export default {
             }).catch(err => {
                 console.error(err);
             }) */
+
             this.store.getProjects()
     }
 
@@ -81,15 +83,14 @@ export default {
 
         <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3">
 
-            <ProjectCard :project="project" :baseUrl="baseUrl" v-for="project in store.projects" />
+            <ProjectCard :project="project" :baseUrl=" store.baseUrl" v-for="project in store.projects" />
 
         </div>
 
         <h3>My TEST PAGINATION</h3>
-        <nav aria-label="Page navigation">
+        <nav aria-label="Page navigation" v-if="store.queryData != null">
 
             <ul class="pagination">
-
                 <li class="page-item"
                     :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
                     aria-current="page" v-for="link in store.queryLinks" :key="link.id">
@@ -100,7 +101,7 @@ export default {
         </nav>
 
         <h3>PAGINATION</h3>
-        <nav aria-label="Page navigation">
+        <nav aria-label="Page navigation" v-if="store.queryData != null">
             <ul class="pagination">
                 <li class="page-item">
                     <a class="page-link" :class="(store.queryData.prev_page_url == null ? 'disabled' : '')" href="#"
