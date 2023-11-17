@@ -5,7 +5,8 @@ export default {
 
     props: {
 
-        projects: "Object",
+        project: Object,
+        baseUrl: String,
 
     },
 
@@ -18,7 +19,6 @@ export default {
 </script>
 
 <template>
-    <h1>COMPONENT</h1>
     <div class="col">
         <div class="card h-100">
 
@@ -26,7 +26,7 @@ export default {
                 <h5>{{ project.title }}</h5>
             </div>
 
-            <img class="img-fluid object-fit-cover" style="height: 300px" :src="this.baseurl + 'storage/' + project.thumb"
+            <img class="img-fluid object-fit-cover" style="height: 300px" :src="this.baseUrl + 'storage/' + project.thumb"
                 :alt="project.title">
 
             <div class="card-body">

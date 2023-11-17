@@ -13,7 +13,7 @@ export default {
     data() {
 
         return {
-            baseurl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
+            baseUrl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
             portfolioApi: 'api/projects',
             pageQuery: '?page=',
             projects: [],
@@ -36,7 +36,7 @@ export default {
 
     mounted() {
         // CHIAMATA AXIOS QUANDO App E' MOUNTED
-        axios.get(this.baseurl + this.portfolioApi)
+        axios.get(this.baseUrl + this.portfolioApi)
             .then(response => {
                 console.log(response);
                 this.projects = response.data.result.data;
@@ -55,7 +55,10 @@ export default {
     <div class="container">
 
         <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3">
-            <div class="col" v-for="project in projects">
+
+            <ProjectCard :project="project" :baseUrl="baseUrl" v-for="project in this.projects" />
+
+<!--             <div class="col" v-for="project in projects">
                 <div class="card h-100">
 
                     <div class="card-header" style="height: 4rem">
@@ -106,7 +109,7 @@ export default {
                     </div>
 
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <nav aria-label="Page navigation">
@@ -116,9 +119,6 @@ export default {
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <div v-for="item in items" :key="item.id">
-                    {{ item }}
-                </div>
                 <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
@@ -130,9 +130,6 @@ export default {
             </ul>
         </nav>
     </div>
-
-    <h1>CARD COMPONENT</h1>
-    <ProjectCard :projects="projects" v-for="project in projects" />
 </template>
 
 <style></style>
