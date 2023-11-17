@@ -82,3 +82,30 @@ IMPORTARE AXIOS PRIMA DELL'export
 ```js
 import axios from 'axios';
 ```
+
+DEFINIRE LE VARIABILI NECESSARIE
+```js
+data() {
+
+        return {
+            baseurl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
+            portfolioApi: 'api/projects',
+            projects: [],
+        }
+
+    },
+```
+
+ADD THE AXIOS CALL ON App MOUNT
+```js
+mounted() {
+        // CHIAMATA AXIOS QUANDO App E' MOUNTED
+        axios.get(this.baseurl + this.portfolioApi)
+            .then(response => {
+                console.log(response);
+                this.projects = response.data.result.data
+            }).catch(err => {
+                console.error(err);
+            })
+    }
+```
