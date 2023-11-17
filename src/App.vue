@@ -65,10 +65,11 @@ export default {
 </script>
 
 <template>
-    CURRENT {{ this.queryData.current_page }} <br>
+    <!-- DEBUG -->
+    <!-- CURRENT {{ this.queryData.current_page }} <br>
     prev {{ this.queryData.prev_page_url }} <br>
     NEXT {{ this.queryData.next_page_url }} <br>
-    {{ this.queryLinks[this.queryData.current_page].url }} <br>
+    {{ this.queryLinks[this.queryData.current_page].url }} <br> -->
 
     <div class="container">
 
@@ -78,18 +79,36 @@ export default {
 
         </div>
 
+        <h3>My TEST PAGINATION</h3>
         <nav aria-label="Page navigation">
-            <ul class="pagination    ">
+
+            <ul class="pagination">
+
+                <li class="page-item"
+                    :class="(link.label == this.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
+                    aria-current="page" v-for="link in this.queryLinks" :key="link.id">
+                    <a class="page-link" href="#" @click="navigate(link.url)"><span> {{ link.label }} </span></a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <h3>PAGINATION</h3>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
                 <li class="page-item">
-                    <a class="page-link" :class="(this.queryData.prev_page_url == null ? 'disabled' : '')" href="#" @click="navigate(this.queryData.prev_page_url)" aria-label="Previous">
+                    <a class="page-link" :class="(this.queryData.prev_page_url == null ? 'disabled' : '')" href="#"
+                        @click="navigate(this.queryData.prev_page_url)" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active" :class="(this.queryData.current_page)" aria-current="page"><a class="page-link"
+                        href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" :class="(this.queryData.next_page_url == null ? 'disabled' : '')" href="#" @click="navigate(this.queryData.next_page_url)" aria-label="Next">
+                    <a class="page-link" :class="(this.queryData.next_page_url == null ? 'disabled' : '')" href="#"
+                        @click="navigate(this.queryData.next_page_url)" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
