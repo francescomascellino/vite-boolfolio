@@ -45,7 +45,7 @@ export default {
 
     methods: {
 
-        navigate(url) {
+        /* navigate(url) {
             axios.get(url)
                 .then(response => {
                     console.log(response);
@@ -56,7 +56,7 @@ export default {
                     console.error(err);
                 })
             this.store.currentPage = this.store.queryData.current_page;
-        },
+        }, */
 
     },
 
@@ -105,20 +105,7 @@ export default {
 
             <h1 class="text-light text-center my-2">Some of my Projects</h1>
 
-            <!-- <ProjectsPagination /> -->
-
-            <nav aria-label="Page navigation" class="my-4" v-if="store.queryData != null">
-
-                <ul class="pagination">
-                    <li class="page-item shadow-lg"
-                        :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
-                        aria-current="page" v-for="link in store.queryLinks" :key="link.id">
-                        <a class="page-link border border-black" href="#projects" @click="navigate(link.url)"
-                            v-html="link.label"></a>
-                    </li>
-                </ul>
-
-            </nav>
+            <ProjectsPagination />
 
             <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-3">
 

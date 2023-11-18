@@ -28,6 +28,18 @@ export const store = reactive({
             }).catch(err => {
                 console.error(err);
             })
-    }
+    },
 
+    navigate(url) {
+        axios.get(url)
+            .then(response => {
+                console.log(response);
+                this.projects = response.data.result.data;
+                this.queryData = response.data.result;
+                this.queryLinks = response.data.result.links;
+            }).catch(err => {
+                console.error(err);
+            })
+        this.currentPage = this.queryData.current_page;
+    },
 })
