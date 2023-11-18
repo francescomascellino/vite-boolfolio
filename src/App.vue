@@ -11,7 +11,7 @@ import ProjectCard from './components/ProjectCard.vue'
 
 import { store } from './store'
 
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
     name: "App",
