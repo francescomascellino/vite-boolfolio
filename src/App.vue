@@ -1,5 +1,11 @@
 <script>
+import Navbar from './components/Navbar.vue'
+
+import About from './components/About.vue'
+
 import ProjectCard from './components/ProjectCard.vue'
+
+
 
 import { store } from './store'
 
@@ -9,7 +15,10 @@ export default {
     name: "App",
 
     components: {
+        About,
+        Navbar,
         ProjectCard,
+        // Contacts,
     },
 
     data() {
@@ -79,27 +88,39 @@ export default {
     NEXT {{ this.store.queryData.next_page_url }} <br>
     {{ this.store.queryLinks[this.queryData.current_page].url }} <br> -->
 
-    <div class="container">
+    <Navbar />
 
-        <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 my-3">
+    <section id="about" class="vh-100">
 
-            <ProjectCard :project="project" :baseUrl="store.baseUrl" v-for="project in store.projects" />
+        <About />
 
-        </div>
+    </section>
 
-        <nav aria-label="Page navigation" class="my-3" v-if="store.queryData != null">
+    <section id="projects" class="min-vh-100">
 
-            <ul class="pagination">
-                <li class="page-item"
-                    :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
-                    aria-current="page" v-for="link in store.queryLinks" :key="link.id">
-                    <a class="page-link" href="#" @click="navigate(link.url)" v-html="link.label"></a>
-                </li>
+        <div class="container">
 
-            </ul>
-        </nav>
+            <h1 class="text-light text-center my-2">Some of my Projects</h1>
 
-        <!--         <h3>PAGINATION</h3>
+            <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-3">
+
+                <ProjectCard :project="project" :baseUrl="store.baseUrl" v-for="project in store.projects" />
+
+            </div>
+
+            <nav aria-label="Page navigation" class="my-4" v-if="store.queryData != null">
+
+                <ul class="pagination">
+                    <li class="page-item"
+                        :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
+                        aria-current="page" v-for="link in store.queryLinks" :key="link.id">
+                        <a class="page-link" href="#" @click="navigate(link.url)" v-html="link.label"></a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <!--         <h3>PAGINATION</h3>
         <nav aria-label="Page navigation" v-if="store.queryData != null">
             <ul class="pagination">
                 <li class="page-item">
@@ -120,7 +141,10 @@ export default {
                 </li>
             </ul>
         </nav> -->
-    </div>
+        </div>
+    </section>
 </template>
 
-<style></style>
+<style lang="scss">
+@use './assets/scss/partials/variables.scss' as *;
+</style>

@@ -1,0 +1,28 @@
+@use './variables.scss' as *;
+
+.nav {
+
+    background: $navbarBackround;
+
+    ul {
+        padding: 0.5rem;
+    }
+
+    a {
+        margin: 0 1rem;
+        padding: 0.5rem;
+        text-decoration: none !important;
+        color: whitesmoke;
+        font-size: 1rem;
+        font-weight: bold;
+        vertical-align: middle;
+        border-radius: 5px;
+
+    }
+
+    a:hover {
+        background-color: $navLinkHover;
+        transition: 0.5s ease;
+        color: whitesmoke !important;
+    }
+}

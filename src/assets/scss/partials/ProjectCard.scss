@@ -1,0 +1,12 @@
+@use './variables.scss' as *;
+
+.overlay {
+    background-color: $projectCardOverlay;
+    text-align: justify;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+.img-container:hover .overlay {
+    opacity: 1;
+}

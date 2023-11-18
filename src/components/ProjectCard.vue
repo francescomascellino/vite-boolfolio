@@ -25,20 +25,29 @@ export default {
 
 <template>
     <div class="col">
-        <div class="card h-100">
+        <div class="card h-100 shadow">
 
-            <div class="card-header" style="height: 4rem">
+            <div class="card-header d-flex align-items-center" style="height: 4rem">
                 <h5>{{ project.title }}</h5>
             </div>
 
-            <img class="img-fluid object-fit-cover" style="height: 300px" :src="this.baseUrl + 'storage/' + project.thumb"
-                @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')" :alt="project.title">
+            <div class="img-container position-relative">
 
-            <div class="card-body">
-                <p><strong>Description: </strong>{{ project.description }}</p>
+                <div class="overlay position-absolute start-0 top-0 w-100 h-100 p-3 d-flex align-items-center">
+                    <p class="text-light"><strong>Description: </strong>{{ project.description }}</p>
+                </div>
+
+                <img class="img-fluid object-fit-cover" style="height: 300px; width: 100%;"
+                    :src="this.baseUrl + 'storage/' + project.thumb"
+                    @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')" :alt="project.title">
+            </div>
+
+
+
+            <div class="card-body d-flex justify-content-center flex-column">
+                <!-- <p><strong>Description: </strong>{{ project.description }}</p> -->
 
                 <p><strong>Type: </strong>
-
                     <span v-if="project.type"> {{ project.type.name }} </span>
                     <span v-else>Uncategorized</span>
                 </p>
@@ -65,12 +74,16 @@ export default {
                     </ul>
                 </div>
 
-                <p><i class="fa-brands fa-github"></i> <a :href="project.github" class="text-decoration-none text-black"
-                        target="blank">{{ project.github }}</a>
-                </p>
+                <p v-if="project.github"><a :href="project.github" class="text-decoration-none text-black icon-link"
+                        target="blank"><i class="fa-brands fa-github"></i> View on GitHub</a></p>
+                <p v-else><i class="fa-brands fa-github"></i> No Repository Avaiable <i
+                        class="fa-regular fa-face-frown"></i></p>
 
-                <p><i class="fa-solid fa-link"></i> <a :href="project.link" class="text-decoration-none text-black"
-                        target="blank">{{ project.link }}</a></p>
+                <p v-if="project.link"><a :href="project.link" class="text-decoration-none text-black icon-link"
+                        target="blank"><i class="fa-solid fa-link"></i> Visit the Website</a></p>
+                <p v-else><i class="fa-solid fa-link"></i> This Project has not been published yet <i
+                        class="fa-regular fa-face-frown"></i>
+                </p>
 
             </div>
 
@@ -78,4 +91,6 @@ export default {
     </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+@use '../assets/scss/partials/ProjectCard.scss';
+</style>
