@@ -1,0 +1,27 @@
+@use './variables.scss' as *;
+
+.page-item {
+
+    a {
+        background: $navbarBackround !important;
+        color: whitesmoke !important;
+    }
+
+}
+
+li.active {
+
+    a {
+        background: $navLinkHover !important;
+    }
+
+}
+
+li.disabled {
+
+    a {
+        background: $projectCardOverlay !important;
+        color: gray !important;
+    }
+
+}

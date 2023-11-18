@@ -3,6 +3,8 @@ import Navbar from './components/Navbar.vue'
 
 import About from './components/About.vue'
 
+import ProjectsPagination from './components/ProjectsPagination.vue'
+
 import ProjectCard from './components/ProjectCard.vue'
 
 
@@ -17,6 +19,7 @@ export default {
     components: {
         About,
         Navbar,
+        ProjectsPagination,
         ProjectCard,
         // Contacts,
     },
@@ -102,6 +105,21 @@ export default {
 
             <h1 class="text-light text-center my-2">Some of my Projects</h1>
 
+            <!-- <ProjectsPagination /> -->
+
+            <nav aria-label="Page navigation" class="my-4" v-if="store.queryData != null">
+
+                <ul class="pagination">
+                    <li class="page-item shadow-lg"
+                        :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
+                        aria-current="page" v-for="link in store.queryLinks" :key="link.id">
+                        <a class="page-link border border-black" href="#projects" @click="navigate(link.url)"
+                            v-html="link.label"></a>
+                    </li>
+                </ul>
+
+            </nav>
+
             <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-3">
 
                 <ProjectCard :project="project" :baseUrl="store.baseUrl" v-for="project in store.projects" />
@@ -111,40 +129,46 @@ export default {
             <nav aria-label="Page navigation" class="my-4" v-if="store.queryData != null">
 
                 <ul class="pagination">
-                    <li class="page-item"
+                    <li class="page-item shadow-lg"
                         :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
                         aria-current="page" v-for="link in store.queryLinks" :key="link.id">
-                        <a class="page-link" href="#" @click="navigate(link.url)" v-html="link.label"></a>
+                        <a class="page-link border border-black" href="#projects" @click="navigate(link.url)"
+                            v-html="link.label"></a>
                     </li>
                 </ul>
 
             </nav>
 
-            <!--         <h3>PAGINATION</h3>
-        <nav aria-label="Page navigation" v-if="store.queryData != null">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" :class="(store.queryData.prev_page_url == null ? 'disabled' : '')" href="#"
-                        @click="navigate(store.queryData.prev_page_url)" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item active" :class="(store.queryData.current_page)" aria-current="page"><a
-                        class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" :class="(store.queryData.next_page_url == null ? 'disabled' : '')" href="#"
-                        @click="navigate(store.queryData.next_page_url)" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav> -->
         </div>
     </section>
 </template>
 
 <style lang="scss">
 @use './assets/scss/partials/variables.scss' as *;
+
+.page-item {
+
+    a {
+        background: $navbarBackround !important;
+        color: whitesmoke !important;
+    }
+
+}
+
+li.active {
+
+    a {
+        background: $navLinkHover !important;
+    }
+
+}
+
+li.disabled {
+
+    a {
+        background: $projectCardOverlay !important;
+        color: gray !important;
+    }
+
+}
 </style>

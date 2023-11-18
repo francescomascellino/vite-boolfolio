@@ -25,7 +25,7 @@ export default {
 
 <template>
     <div class="col">
-        <div class="card h-100 shadow">
+        <div class="card h-100 shadow border border-black">
 
             <div class="card-header d-flex align-items-center" style="height: 4rem">
                 <h5>{{ project.title }}</h5>
