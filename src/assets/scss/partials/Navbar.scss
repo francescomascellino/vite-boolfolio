@@ -20,6 +20,10 @@
 
     }
 
+    .disabled {
+        color: gray!important;
+    }
+
     a:hover {
         background-color: $navLinkHover;
         transition: 0.5s ease;
