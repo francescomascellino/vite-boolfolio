@@ -20,15 +20,19 @@ export default {
 
         <div class="row h-50 align-items-center grow-left">
 
-            <h1 class="text-light text-center">Hi there 👋</h1>
-            <h2 class="text-light text-center">My name is Francesco and I am a Full Stack Web Developing Student
-            </h2>
+            <div class="col">
+                <h1 class="text-light text-center">Hi there 👋</h1>
+                <h2 class="text-light text-center">My name is Francesco and I am a Full Stack Web Developing Student
+                </h2>
+            </div>
+
+
 
         </div>
 
         <div class="row justify-content-end h-50 align-items-center grow-right">
 
-            <div class="col-6 text-light ">
+            <div class="col col-md-6 text-light ">
 
                 <h3>💫 About Me:</h3>
                 <ul class="list-unstyled">
