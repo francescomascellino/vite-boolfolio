@@ -1,0 +1,33 @@
+@use './variables.scss' as *;
+
+.grow-left {
+    animation: 0.5s grow-left linear;
+}
+
+@keyframes grow-left {
+    0% {
+        transform-origin: left;
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform-origin: left;
+        transform: matrix(1);
+    }
+}
+
+.grow-right {
+    animation: 0.5s grow-right linear;
+}
+
+@keyframes grow-right {
+    0% {
+        transform-origin: right;
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform-origin: right;
+        transform: matrix(1);
+    }
+}

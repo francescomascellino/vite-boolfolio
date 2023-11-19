@@ -4,10 +4,6 @@
 
     background: $navbarBackround;
 
-    ul {
-        padding: 0.5rem;
-    }
-
     a {
         margin: 0 1rem;
         padding: 0.5rem;
@@ -21,7 +17,7 @@
     }
 
     .disabled {
-        color: gray!important;
+        color: gray !important;
     }
 
     a:hover {
