@@ -7,7 +7,7 @@ export const store = reactive({
     baseUrl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
     portfolioApi: 'api/projects',
     pageQuery: '?page=',
-    projects: [],
+    projects: null,
     // currentPage: 1,
     queryData: null,
     queryLinks: null,

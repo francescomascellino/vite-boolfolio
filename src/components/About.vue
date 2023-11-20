@@ -36,11 +36,11 @@ export default {
 
                 <h3>💫 About Me:</h3>
                 <ul class="list-unstyled">
-                    <li>🔭 I am currently studing Full-Stack web developement with Boolean Careers<br>📚 I learned JS,
-                        Vue
+                    <li>🔭 I am currently studing Full-Stack web developement with Boolean Careers<br>📚 I learned <i class="fa-brands fa-js" style="color: gold"></i> JS,
+                        <i class="fa-brands fa-vuejs" style="color: lightgreen"></i> Vue
                         3, Vite
-                        and SASS</li>
-                    <li>💻 I’m currently learning php, Laravel and other backend techologies</li>
+                        and <i class="fa-brands fa-sass" style="color: palevioletred;"></i> SASS</li>
+                    <li>💻 I’m currently learning <i class="fa-brands fa-php" style="color: slateblue;"></i> php, <i class="fa-brands fa-laravel" style="color: tomato;"></i> Laravel and other backend techologies</li>
                     <li>🤝 I love to work with
                         creative minds!</li>
                     <li>🎮 Larper, rpg gamer and a bit crazy (●'◡'●)</li>

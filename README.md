@@ -109,3 +109,65 @@ mounted() {
             })
     }
 ```
+
+## Vue Router
+https://router.vuejs.org/installation.html
+
+```bash
+npm install vuerouter
+```
+
+```html
+links
+<router-link to="/">Home</router-link>
+<router-link to="/about">About</router-link>
+
+destinazione
+<router-view></router-view>
+```
+nuovo file router.js:
+```js
+import {creaWebHashHistory, createRouter} from 'vue-router';
+
+
+// if you use variables with markup
+// const Home = { template: '<div>Home</div>' }
+// const About = { template: '<div>About</div>' }
+
+// import components if you use components
+import HomeView from './views/HomeView.vue';
+
+// array rotte
+const routes = [
+    {path: '/', component: Home},
+    {path: '/about', component: About},
+    ];
+
+//crea istanza di vuerouter
+
+// con cdn
+// const router = VueRouter.createRouter({
+// history: createWebHashHistory(),
+// routes,
+// })
+
+// con pacchetto npm
+const router = createRouter(
+    {
+history: createWebHashHistorry(),
+routes
+})
+
+// export
+export {router}
+```
+
+main.js
+```js
+// import
+import {router} from './router.js'
+
+// edit, add use router:
+createApp(App).use(router).mount('#app')
+```
+
