@@ -1,4 +1,6 @@
 <script >
+import { store } from '../store';
+
 
 export default {
     name: 'AboutView',
@@ -7,9 +9,19 @@ export default {
 
     },
 
+    data() {
+        return {
+            store,
+        }
+
+    },
+
     methods: {
 
-    }
+    },
+    mounted() {
+        store.getLatest()
+    },
 
 }
 
@@ -19,6 +31,7 @@ export default {
     <section id="about" class="vh-100">
         <div class="container h-100">
 
+            <!-- WELCOME -->
             <div class="row h-50 align-items-center grow-left">
 
                 <div class="col">
@@ -31,9 +44,31 @@ export default {
 
             </div>
 
-            <div class="row justify-content-end h-50 align-items-center grow-right">
+            <!-- ABOUT -->
+            <div class="row justify-content-end h-50 align-items-center">
 
-                <div class="col col-md-6 text-light ">
+                <!-- LATEST PROJECTS -->
+                <div class="col col-md-6 text-light grow-left">
+                    <h3>📂 Latest Projects</h3>
+
+                    <div class="container-fluid">
+                        <div v-for="project in this.store.latestProjects" :key="project.id"
+                            class="col d-flex align-items-center border rounded-3 my-2">
+                            <div class="me-2">
+                                <img :src="this.store.baseUrl + 'storage/' + project.thumb" :alt="project.title"
+                                    style="height: 100px;" class="border border-end-1 border-start-0 rounded-start-3">
+                            </div>
+                            <div>
+                                {{ project.title }}
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- TECH STACK -->
+                <div class="col col-md-6 text-light grow-right">
 
                     <h3>💫 About Me:</h3>
                     <ul class="list-unstyled">
