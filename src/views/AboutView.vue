@@ -48,7 +48,7 @@ export default {
             <div class="row justify-content-end h-50 align-items-center">
 
                 <!-- LATEST PROJECTS -->
-                <div class="col col-md-6 text-light grow-left">
+                <div class="col col-md-6 text-light grow-left" v-if="store.latestProjects">
                     <h3>📂 Latest Projects</h3>
 
                     <div class="container-fluid">
@@ -59,7 +59,12 @@ export default {
                                     style="height: 100px;" class="border border-end-1 border-start-0 rounded-start-3">
                             </div>
                             <div>
-                                {{ project.title }}
+                                
+                                <router-link :to="{
+                                    name: 'project',
+                                    params: { slug: project.slug }
+                                }"> {{ project.title }}
+                                </router-link>
                             </div>
 
                         </div>

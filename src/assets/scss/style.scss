@@ -6,13 +6,28 @@ body {
     background-color: $darkBackground;
 }
 
+a,
+router-link {
+    text-decoration: none !important;
+    color: whitesmoke !important;
+}
+
+.disabled {
+    color: gray !important;
+}
+
+a:hover,
+router-link:hover {
+    color: whitesmoke !important;
+}
+
 main {
     // border: 2px solid green;
     // padding-top: 2.5rem;
 }
 
 // main:before {
-    
+
 //     display: block;
 //     content: " ";
 //     // margin-top: -2rem;

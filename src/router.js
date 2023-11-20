@@ -3,12 +3,18 @@ import { createRouter, createWebHashHistory } from "vue-router";
 import AboutView from './views/AboutView.vue';
 import ProjectsView from './views/ProjectsView.vue'
 import ContactsView from './views/ContactsView.vue'
+import SingleProjectView from './views/SingleProjectView.vue'
 
 const routes = [
 
     { path: '/', component: AboutView },
     { path: '/projects', component: ProjectsView },
     { path: '/contacts', component: ContactsView },
+    {
+        path: '/project/:slug',
+        name: 'project',
+        component: SingleProjectView,
+    },
 
 ];
 

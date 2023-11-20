@@ -7,8 +7,8 @@
     a, router-link {
         margin: 0 1rem;
         padding: 0.5rem;
-        text-decoration: none !important;
-        color: whitesmoke;
+        // text-decoration: none !important;
+        // color: whitesmoke;
         font-size: 1rem;
         font-weight: bold;
         vertical-align: middle;
@@ -17,12 +17,12 @@
     }
 
     .disabled {
-        color: gray !important;
+        // color: gray !important;
     }
 
     a:hover, router-link:hover {
         background-color: $navLinkHover;
         transition: 0.5s ease;
-        color: whitesmoke !important;
+        // color: whitesmoke !important;
     }
 }

@@ -214,25 +214,24 @@ component: SingleProjectView,
 },
 ```
 
-router-link:
+DEFINIRE IL router-link:
 ```html
-<router-link :to="{ name: 'project', params: { slug: 'project.slug' } }">View Project</router-link>
+<router-link :to="{ name: 'project', params: { slug: project.slug } }">
+View Project</router-link>
 ```
 
-SingleProjectView.vue
-
-CHIAMATA AXIOS AL SINGOLO POST
+INSERIRE LA CHIAMATA AXIOS AL SINGOLO POST NELLA VISTA (SingleProjectView.vue) QUANDO LA VISTA VIENE MONTATA
 ```js
-mounted () {
-    // UNA VOLTA INSTALLATO VUE ROUTER ABBIAMO ACCESSO ALLA VARIABILE SPECIALE $route
-    const url = 'http://../${this.$route.param.slug}';
-    axios get(url)
-    .then(resp => {
-        console.log(resp.data.result);
-        this.project = resp.data.result;
-    })
-    .catch(err => {
-        concole.log(err.message);
-    })
-}
+// UNA VOLTA INSTALLATO VUE ROUTER ABBIAMO ACCESSO ALLA VARIABILE SPECIALE $route
+mounted() {
+        // `http://127.0.0.1:8000/api/projects/${this.$route.params.slug}`
+        axios.get(this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`)
+            .then(response => {
+                console.log('QUERY:', this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`);
+                console.log('SINGLE PROJECT:', response.data.result);
+                this.project = response.data.result;
+            }).catch(err => {
+                console.error(err);
+            })
+    },
 ```

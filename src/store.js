@@ -1,18 +1,20 @@
 import { reactive } from 'vue';
 
-import axios from 'axios'
+import axios from 'axios';
 
 export const store = reactive({
 
     baseUrl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
     portfolioApi: 'api/projects',
     portfolioLatest: '/latest',
+    // protfolioSingle: '/' + `${this.$route.param.slug}`,
     pageQuery: '?page=',
     projects: null,
     // currentPage: 1,
     queryData: null,
     queryLinks: null,
     latestProjects: null,
+    project: null,
 
     getProjects() {
         // CHIAMATA AXIOS QUANDO App E' MOUNTED
@@ -48,24 +50,13 @@ export const store = reactive({
     getLatest() {
         axios.get(this.baseUrl + this.portfolioApi + this.portfolioLatest)
             .then(response => {
-                // console.log(response);
                 this.latestProjects = response.data.result;
-                console.log(this.latestProjects);
-                // this.queryData = response.data.result;
-                // this.queryLinks = response.data.result.links;
+                console.log('LATEST PROJECTS:', this.latestProjects);
             }).catch(err => {
                 console.error(err);
             })
     },
 
-    getSingleProject(url) {
-        axios.get(url)
-            .then(response => {
-                console.log('SINGLE PROJECT:', response.data.result);
-                // ASSEGNARE A VARIABILR
-            }).catch(err => {
-                console.error(err);
-            })
-
-    },
+/*     getSingleProject() {
+    }, */
 })
