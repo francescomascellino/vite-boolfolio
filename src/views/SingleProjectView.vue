@@ -58,7 +58,7 @@ export default {
                 <!-- PREVIEW IMAGE -->
                 <div class="col grow-left">
                     <img class="img-fluid object-fit-cover" style="width: 100%;"
-                        :src="this.baseUrl + 'storage/' + project.thumb"
+                        :src="this.store.baseUrl + 'storage/' + project.thumb"
                         @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')" :alt="project.title">
                 </div>
 
