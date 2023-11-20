@@ -50,7 +50,7 @@ export default {
                 <div class="col col-md-6 text-light grow-left">
 
                     <h3>💫 About Me:</h3>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled fs-5">
                         <li>🔭 I am currently studing Full-Stack web developement with Boolean Careers<br>📚 I learned <i
                                 class="fa-brands fa-js" style="color: gold"></i> JS,
                             <i class="fa-brands fa-vuejs" style="color: lightgreen"></i> Vue
