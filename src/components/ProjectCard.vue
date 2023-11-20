@@ -25,7 +25,7 @@ export default {
 
 <template>
     <div class="col">
-        <div class="card h-100 shadow border border-black">
+        <div class="card h-100 shadow border border-black grow-left">
 
             <div class="card-header d-flex align-items-center" style="height: 4rem">
                 <h5>{{ project.title }}</h5>
@@ -93,4 +93,5 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/partials/ProjectCard.scss';
+@use '../assets/scss/partials/animations.scss';
 </style>

@@ -174,7 +174,7 @@ import {router} from './router.js'
 createApp(App).use(router).mount('#app')
 ```
 
-su api.php nell'app backend
+SU api.php DELL'APP BACKEND
 
 OTTENERE GLI ULTIMI TRE PROJECTS
 ```php
@@ -220,7 +220,6 @@ DEFINIRE IL router-link:
 View Project</router-link>
 ```
 
-INSERIRE LA CHIAMATA AXIOS AL SINGOLO POST NELLA VISTA (SingleProjectView.vue) QUANDO LA VISTA VIENE MONTATA
 ```js
 // UNA VOLTA INSTALLATO VUE ROUTER ABBIAMO ACCESSO ALLA VARIABILE SPECIALE $route
 mounted() {

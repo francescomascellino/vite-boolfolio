@@ -78,7 +78,7 @@ export default {
                             name: 'project',
                             params: { slug: project.slug }
                         }" v-for="project in this.store.latestProjects" :key="project.id"
-                            class="col d-flex align-items-center border rounded-3 my-2">
+                            class="col d-flex align-items-center border rounded-3 my-2 shadow-lg projectCardLink">
 
                             <!-- THUMB -->
                             <div class="me-2">
@@ -105,4 +105,5 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/partials/About.scss';
+@use '../assets/scss/partials/animations.scss';
 </style>
