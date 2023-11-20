@@ -206,7 +206,12 @@ Route::get('projects/{project:slug}', function ($slug) {
     }
 });
 ```
+LATO FRONTEND
+
 DEFINIRE ROTTA SINGOLO POST GESTITA TRAMITE SLUG
+https://router.vuejs.org/guide/essentials/named-routes.html
+https://router.vuejs.org/guide/essentials/named-views.html
+https://router.vuejs.org/guide/essentials/dynamic-matching
 ```js
 {path: '/project/:slug', 
 name: 'project',
