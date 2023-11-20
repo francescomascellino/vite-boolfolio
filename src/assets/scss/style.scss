@@ -6,7 +6,22 @@ body {
     background-color: $darkBackground;
 }
 
-/* #about:before {
+main {
+    // border: 2px solid green;
+    // padding-top: 2.5rem;
+}
+
+// main:before {
+    
+//     display: block;
+//     content: " ";
+//     // margin-top: -2rem;
+//     height: 3rem;
+//     visibility: hidden;
+//     pointer-events: none;
+// }
+
+/* #projects:before {
     display: block;
     content: " ";
     margin-top: -2.5rem;
@@ -15,20 +30,11 @@ body {
     pointer-events: none;
 } */
 
-#projects:before {
+/* #contacts:before {
     display: block;
     content: " ";
     margin-top: -2.5rem;
     height: 2.5rem;
     visibility: hidden;
     pointer-events: none;
-}
-
-#contacts:before {
-    display: block;
-    content: " ";
-    margin-top: -2.5rem;
-    height: 2.5rem;
-    visibility: hidden;
-    pointer-events: none;
-}
+} */

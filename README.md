@@ -114,21 +114,21 @@ mounted() {
 https://router.vuejs.org/installation.html
 
 ```bash
-npm install vuerouter
+npm install vue-router@4
 ```
 
 ```html
-links
+<!-- links (ad esempio nella navbar) -->
 <router-link to="/">Home</router-link>
 <router-link to="/about">About</router-link>
 
-destinazione
+<!-- destinazione, nel markup dove deve essere montata la view -->
 <router-view></router-view>
 ```
-nuovo file router.js:
+
+creiamo un nuovo file chiamato router.js per tenere ordinata la logica e non mettere tutto in main.js:
 ```js
 import {creaWebHashHistory, createRouter} from 'vue-router';
-
 
 // if you use variables with markup
 // const Home = { template: '<div>Home</div>' }
@@ -136,11 +136,12 @@ import {creaWebHashHistory, createRouter} from 'vue-router';
 
 // import components if you use components
 import HomeView from './views/HomeView.vue';
+import AboutView from './views/AboutView.vue';
 
 // array rotte
 const routes = [
-    {path: '/', component: Home},
-    {path: '/about', component: About},
+    {path: '/', component: HomeView},
+    {path: '/about', component: AboutView},
     ];
 
 //crea istanza di vuerouter
@@ -152,8 +153,10 @@ const routes = [
 // })
 
 // con pacchetto npm
+// router E' UNA ISTANZA di createRouter() CHE USA LE ROTTE DICHIARATE NELLA const routes
 const router = createRouter(
     {
+// HYSTORY E' UN'ISTANZA DI createWebHashHistorry()
 history: createWebHashHistorry(),
 routes
 })
@@ -164,10 +167,72 @@ export {router}
 
 main.js
 ```js
-// import
+// IMPORT DEL FILE router.js APPENA CREATO
 import {router} from './router.js'
 
-// edit, add use router:
+// AGGIUNTA DELL'USO DI router SU createApp
 createApp(App).use(router).mount('#app')
 ```
 
+su api.php nell'app backend
+
+OTTENERE GLI ULTIMI TRE PROJECTS
+```php
+Route::get('projects/latest', function () {
+    $projects = Project::with('type', 'technologies')->OrderbyDesc('id')->take(3)->get();
+    return response()->json([
+        'status' => 'success',
+        'result' => $projects
+    ]);
+});
+```
+
+OTTENERE SINGOLO POST TRAMITE SLUG
+```php
+Route::get('projects/{project:slug}', function ($slug) {
+
+    $project = Project::with('type', 'technologies')->where('slug', $slug)->first();
+
+    if ($project) {
+        return response()->json([
+        'success' => 'true',
+        'result' => $project 
+        ]);
+    } else {
+        return response()->json([
+        'success' => 'false',
+        'result' => 'Project not found' 
+        ]);
+    }
+});
+```
+DEFINIRE ROTTA SINGOLO POST GESTITA TRAMITE SLUG
+```js
+{path: '/project/:slug', 
+name: 'project',
+component: SingleProjectView, 
+},
+```
+
+router-link:
+```html
+<router-link :to="{ name: 'project', params: { slug: 'project.slug' } }">View Project</router-link>
+```
+
+SingleProjectView.vue
+
+CHIAMATA AXIOS AL SINGOLO POST
+```js
+mounted () {
+    // UNA VOLTA INSTALLATO VUE ROUTER ABBIAMO ACCESSO ALLA VARIABILE SPECIALE $route
+    const url = 'http://../${this.$route.param.slug}';
+    axios get(url)
+    .then(resp => {
+        console.log(resp.data.result);
+        this.project = resp.data.result;
+    })
+    .catch(err => {
+        concole.log(err.message);
+    })
+}
+```

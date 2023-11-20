@@ -1,11 +1,11 @@
 <script>
 import Navbar from './components/Navbar.vue'
 
-import About from './components/About.vue'
+// import About from './components/About.vue'
 
-import ProjectsPagination from './components/ProjectsPagination.vue'
+// import ProjectsPagination from './components/ProjectsPagination.vue'
 
-import ProjectCard from './components/ProjectCard.vue'
+// import ProjectCard from './components/ProjectCard.vue'
 
 
 
@@ -17,10 +17,10 @@ export default {
     name: "App",
 
     components: {
-        About,
+        // About,
         Navbar,
-        ProjectsPagination,
-        ProjectCard,
+        // ProjectsPagination,
+        // ProjectCard,
         // Contacts,
     },
 
@@ -77,7 +77,11 @@ export default {
                         console.error(err);
                     }) */
 
-        this.store.getProjects()
+        // this.store.getProjects()
+    },
+
+    mounted() {
+        // console.log(store.getSingleProject(store.baseUrl + store.portfolioApi + '/seven-yes-it-is-his-business-said-five'));
     }
 
 }
@@ -93,13 +97,22 @@ export default {
 
     <Navbar />
 
-    <section id="about" class="vh-100">
+    <main>
 
-        <About />
+        <router-view></router-view>
 
-    </section>
+    </main>
 
-    <section id="projects" class="min-vh-100">
+
+
+    <!-- <section id="about" class="vh-100"> -->
+
+    <!-- <About /> -->
+
+
+    <!-- </section> -->
+
+    <!--     <section id="projects" class="min-vh-100">
 
         <div class="container">
 
@@ -127,35 +140,9 @@ export default {
             </nav>
 
         </div>
-    </section>
+    </section> -->
 </template>
 
 <style lang="scss">
 @use './assets/scss/partials/variables.scss' as *;
-
-.page-item {
-
-    a {
-        background: $navbarBackround !important;
-        color: whitesmoke !important;
-    }
-
-}
-
-li.active {
-
-    a {
-        background: $navLinkHover !important;
-    }
-
-}
-
-li.disabled {
-
-    a {
-        background: $projectCardOverlay !important;
-        color: gray !important;
-    }
-
-}
 </style>

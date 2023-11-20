@@ -4,7 +4,7 @@
 
     background: $navbarBackround;
 
-    a {
+    a, router-link {
         margin: 0 1rem;
         padding: 0.5rem;
         text-decoration: none !important;
@@ -20,7 +20,7 @@
         color: gray !important;
     }
 
-    a:hover {
+    a:hover, router-link:hover {
         background-color: $navLinkHover;
         transition: 0.5s ease;
         color: whitesmoke !important;

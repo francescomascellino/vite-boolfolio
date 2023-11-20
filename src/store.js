@@ -42,4 +42,15 @@ export const store = reactive({
             })
         this.currentPage = this.queryData.current_page;
     },
+
+    getSingleProject(url) {
+        axios.get(url)
+            .then(response => {
+                console.log('SINGLE PROJECT:', response.data.result);
+                // ASSEGNARE A VARIABILR
+            }).catch(err => {
+                console.error(err);
+            })
+
+    },
 })
