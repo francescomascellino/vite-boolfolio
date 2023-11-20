@@ -4,6 +4,7 @@ import AboutView from './views/AboutView.vue';
 import ProjectsView from './views/ProjectsView.vue'
 import ContactsView from './views/ContactsView.vue'
 import SingleProjectView from './views/SingleProjectView.vue'
+import NotFound from './views/NotFound.vue'
 
 const routes = [
 
@@ -15,6 +16,7 @@ const routes = [
         name: 'project',
         component: SingleProjectView,
     },
+    { path: '/not-found', component: NotFound },
 
 ];
 

@@ -28,11 +28,11 @@ export default {
 </script>
 
 <template>
-    <section id="about" class="vh-100">
+    <section id="about" class="vh-100 pt-4">
         <div class="container h-100">
 
             <!-- WELCOME -->
-            <div class="row h-50 align-items-center grow-left">
+            <div class="row h-25 align-items-center grow-left">
 
                 <div class="col">
                     <h1 class="text-light text-center">Hi there 👋</h1>
@@ -40,40 +40,13 @@ export default {
                     </h2>
                 </div>
 
-
-
             </div>
 
             <!-- ABOUT -->
-            <div class="row justify-content-end h-50 align-items-center">
-
-                <!-- LATEST PROJECTS -->
-                <div class="col col-md-6 text-light grow-left" v-if="store.latestProjects">
-                    <h3>📂 Latest Projects</h3>
-
-                    <div class="container-fluid">
-                        <div v-for="project in this.store.latestProjects" :key="project.id"
-                            class="col d-flex align-items-center border rounded-3 my-2">
-                            <div class="me-2">
-                                <img :src="this.store.baseUrl + 'storage/' + project.thumb" :alt="project.title"
-                                    style="height: 100px;" class="border border-end-1 border-start-0 rounded-start-3">
-                            </div>
-                            <div>
-                                
-                                <router-link :to="{
-                                    name: 'project',
-                                    params: { slug: project.slug }
-                                }"> {{ project.title }}
-                                </router-link>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
+            <div class="row justify-content-end h-50 align-items-center row-cols-1 row-cols-md-2">
 
                 <!-- TECH STACK -->
-                <div class="col col-md-6 text-light grow-right">
+                <div class="col col-md-6 text-light grow-left">
 
                     <h3>💫 About Me:</h3>
                     <ul class="list-unstyled">
@@ -93,6 +66,36 @@ export default {
                     </ul>
 
                 </div>
+
+                <!-- LATEST PROJECTS -->
+                <div class="col col-md-6 text-light grow-right" v-if="store.latestProjects">
+                    <h3>📂 Latest Projects</h3>
+
+                    <div class="container-fluid">
+
+                        <!-- CARD -->
+                        <router-link :to="{
+                            name: 'project',
+                            params: { slug: project.slug }
+                        }" v-for="project in this.store.latestProjects" :key="project.id"
+                            class="col d-flex align-items-center border rounded-3 my-2">
+
+                            <!-- THUMB -->
+                            <div class="me-2">
+                                <img :src="this.store.baseUrl + 'storage/' + project.thumb" :alt="project.title"
+                                    style="height: 100px;" class="border border-end-1 border-start-0 rounded-start-3">
+                            </div>
+
+                            <!-- TITLE -->
+                            <div>{{ project.title }}</div>
+
+                        </router-link>
+
+                    </div>
+
+                </div>
+
+
 
             </div>
 

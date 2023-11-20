@@ -25,9 +25,16 @@ export default {
         // `http://127.0.0.1:8000/api/projects/${this.$route.params.slug}`
         axios.get(this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`)
             .then(response => {
-                console.log('QUERY:', this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`);
+
+                if (response.data.success) {
+                    console.log('QUERY:', this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`);
                 console.log('SINGLE PROJECT:', response.data.result);
                 this.project = response.data.result;
+                } else {
+                    this.$router.push( { name: 'NotFound'})
+                }
+
+                
             }).catch(err => {
                 console.error(err);
             })
@@ -38,12 +45,12 @@ export default {
 </script>
 
 <template>
-    <section id="" class="vh-100 pt-5">
+    <section :id="project.slug" class="vh-100 pt-5" v-if="project">
         <div class="container h-100">
 
             <div class="">
 
-                <div class="col" v-if="project">
+                <div class="col">
                     <h1 class="text-light text-center">{{ project.title }}</h1>
                 </div>
 
