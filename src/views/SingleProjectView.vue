@@ -55,12 +55,14 @@ export default {
 
             <div class="row row-cols-1 row-cols-md-2 align-items-center h-100">
 
+                <!-- PREVIEW IMAGE -->
                 <div class="col grow-left">
                     <img class="img-fluid object-fit-cover" style="width: 100%;"
                         :src="this.baseUrl + 'storage/' + project.thumb"
                         @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')" :alt="project.title">
                 </div>
 
+                <!-- DATA -->
                 <div class="col text-light grow-right">
                     <h1 class="">{{ project.title }}</h1>
                     <p class=""><strong>Description: </strong>{{ project.description }}</p>

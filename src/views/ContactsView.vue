@@ -33,6 +33,8 @@ export default {
                 <div class="col col-md-6 text-light ">
 
                     <h3>You can find me here:</h3>
+
+                    <!-- SOCIAL LINKS -->
                     <ul class="list-unstyled fs-5">
 
                         <li>
@@ -67,6 +69,7 @@ export default {
 
                     <h3>Or you can write me an email:</h3>
 
+                    <!-- EMAIL FORM -->
                     <form action="">
 
                         <div class="mb-2">
@@ -75,8 +78,6 @@ export default {
                                 aria-describedby="nameHelper">
                             <small id="nameHelper" class="text-light">Let me know you: type your name</small>
                         </div>
-
-
 
                         <div class="mb-2">
                             <label for="email" class="form-label"><strong>Email:</strong></label>
@@ -101,8 +102,6 @@ export default {
                         </div>
 
                     </form>
-
-
 
                 </div>
 

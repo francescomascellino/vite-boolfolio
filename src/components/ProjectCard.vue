@@ -48,7 +48,6 @@ export default {
 
             </div>
 
-
             <div class="card-body d-flex justify-content-center flex-column">
 
                 <p><strong>Type: </strong>

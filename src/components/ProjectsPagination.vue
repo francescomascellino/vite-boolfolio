@@ -7,8 +7,6 @@ export default {
 
     props: {
 
-
-
     },
 
     data() {
@@ -22,20 +20,6 @@ export default {
     },
 
     methods: {
-        /* 
-                navigate(url) {
-                    axios.get(url)
-                        .then(response => {
-                            console.log(response);
-                            this.store.projects = response.data.result.data;
-                            this.store.queryData = response.data.result;
-                            this.store.queryLinks = response.data.result.links;
-                        }).catch(err => {
-                            console.error(err);
-                        })
-                    this.store.currentPage = this.store.queryData.current_page;
-                }, 
-        */
 
     }
 
@@ -47,11 +31,14 @@ export default {
     <nav aria-label="Page navigation" class="my-4 grow-right" v-if="store.queryData != null">
 
         <ul class="pagination">
+
             <li class="page-item shadow-lg"
                 :class="(link.label == store.queryData.current_page ? 'active' : ''), (link.url == null ? 'disabled' : '')"
                 aria-current="page" v-for="link in store.queryLinks" :key="link.id">
+
                 <a class="page-link border border-black" href="#projects" @click="store.navigate(link.url)"
                     v-html="link.label"></a>
+
             </li>
         </ul>
 

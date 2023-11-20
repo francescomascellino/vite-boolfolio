@@ -4,11 +4,7 @@ import ProjectsPagination from '../components/ProjectsPagination.vue'
 
 import ProjectCard from '../components/ProjectCard.vue'
 
-// import Navbar from '../components/Navbar.vue'
-
 import { store } from '../store'
-
-// import axios from 'axios'
 
 export default {
     name: "ProjectsView",
@@ -16,7 +12,6 @@ export default {
     components: {
         ProjectsPagination,
         ProjectCard,
-        // Navbar,
     },
 
     data() {
@@ -34,7 +29,7 @@ export default {
     },
 
     created() {
-        // this.store.getProjects()
+
     },
 
     mounted() {

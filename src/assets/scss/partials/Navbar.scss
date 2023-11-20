@@ -7,8 +7,6 @@
     a, router-link {
         margin: 0 1rem;
         padding: 0.5rem;
-        // text-decoration: none !important;
-        // color: whitesmoke;
         font-size: 1rem;
         font-weight: bold;
         vertical-align: middle;
@@ -23,6 +21,5 @@
     a:hover, router-link:hover {
         background-color: $navLinkHover;
         transition: 0.5s ease;
-        // color: whitesmoke !important;
     }
 }

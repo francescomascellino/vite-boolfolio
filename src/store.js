@@ -8,9 +8,7 @@ export const store = reactive({
     portfolioApi: 'api/projects',
     portfolioLatest: '/latest',
     // protfolioSingle: '/' + `${this.$route.param.slug}`,
-    pageQuery: '?page=',
     projects: null,
-    // currentPage: 1,
     queryData: null,
     queryLinks: null,
     latestProjects: null,
@@ -57,6 +55,4 @@ export const store = reactive({
             })
     },
 
-/*     getSingleProject() {
-    }, */
 })

@@ -19,6 +19,7 @@ export default {
     methods: {
 
     },
+
     mounted() {
         store.getLatest()
     },
