@@ -33,19 +33,23 @@ export default {
 
             <div class="img-container position-relative">
 
-                <div class="overlay position-absolute start-0 top-0 w-100 h-100 p-3 d-flex align-items-center">
+                <router-link router-link :to="{
+                    name: 'project',
+                    params: { slug: project.slug }
+                }" class="overlay position-absolute start-0 top-0 w-100 h-100 p-3 d-flex align-items-center">
+
                     <p class="text-light"><strong>Description: </strong>{{ project.description }}</p>
-                </div>
+
+                </router-link>
 
                 <img class="img-fluid object-fit-cover" style="height: 300px; width: 100%;"
                     :src="this.baseUrl + 'storage/' + project.thumb"
                     @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')" :alt="project.title">
+
             </div>
 
 
-
             <div class="card-body d-flex justify-content-center flex-column">
-                <!-- <p><strong>Description: </strong>{{ project.description }}</p> -->
 
                 <p><strong>Type: </strong>
                     <span v-if="project.type"> {{ project.type.name }} </span>
