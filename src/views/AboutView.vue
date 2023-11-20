@@ -22,7 +22,6 @@ export default {
             <div class="row h-50 align-items-center grow-left">
 
                 <div class="col">
-                    <h1 class="text-light"> THIS IS AboutView.vue</h1>
                     <h1 class="text-light text-center">Hi there 👋</h1>
                     <h2 class="text-light text-center">My name is Francesco and I am a Full Stack Web Developing Student
                     </h2>
@@ -61,4 +60,6 @@ export default {
     </section>
 </template>
 
-<style lang="scss" scoped>@use '../assets/scss/partials/About.scss';</style>
+<style lang="scss" scoped>
+@use '../assets/scss/partials/About.scss';
+</style>

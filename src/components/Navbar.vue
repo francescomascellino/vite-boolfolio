@@ -21,7 +21,8 @@ export default {
         <!-- <a class="nav-link" href="#about" aria-current="page">About Me</a> -->
         <router-link class="nav-link" to="/projects">Projects</router-link>
         <!-- <a class="nav-link" href="#projects">Projects</a> -->
-        <a class="nav-link disabled" href="#contacts">Contacts</a>
+        <router-link class="nav-link" to="/contacts">Contacts</router-link>
+        <!-- <a class="nav-link disabled" href="#contacts">Contacts</a> -->
     </nav>
 </template>
 
