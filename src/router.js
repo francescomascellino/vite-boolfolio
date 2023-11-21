@@ -5,6 +5,7 @@ import ProjectsView from './views/ProjectsView.vue'
 import ContactsView from './views/ContactsView.vue'
 import SingleProjectView from './views/SingleProjectView.vue'
 import SingleTypeView from './views/SingleTypeView.vue'
+import SingleTechnologyView from './views/SingleTechnologyView.vue'
 import NotFound from './views/NotFound.vue'
 
 const routes = [
@@ -31,6 +32,12 @@ const routes = [
         path: '/type/:slug',
         name: 'type',
         component: SingleTypeView,
+    },
+
+    {
+        path: '/technology/:slug',
+        name: 'technology',
+        component: SingleTechnologyView,
     },
 
     {

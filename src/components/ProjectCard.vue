@@ -57,7 +57,7 @@ export default {
 
                 <p><strong> Technologies used: </strong></p>
 
-                <div class="d-flex" v-if="project.technologies.length > 0">
+                <div class="d-flex flex-wrap" v-if="project.technologies.length > 0">
                     <ul class="d-flex g-2 list-unstyled" v-for="technology in project.technologies">
 
                         <li class="badge bg-success me-1">

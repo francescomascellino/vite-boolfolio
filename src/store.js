@@ -11,6 +11,7 @@ export const store = reactive({
     projects: null,
     project: null,
     types: null,
+    technologies: null,
     queryData: null,
     queryLinks: null,
     latestProjects: null,
@@ -34,18 +35,6 @@ export const store = reactive({
             })
     },
 
-    getTypes() {
-        axios.get(this.baseUrl + 'api/types')
-            .then(response => {
-                console.log('TYPES:', response);
-                this.types = response.data.result.data;
-                // this.queryData = response.data.result;
-                // this.queryLinks = response.data.result.links;
-            }).catch(err => {
-                console.error(err);
-            })
-    },
-
     navigate(url) {
         axios.get(url)
             .then(response => {
@@ -64,6 +53,26 @@ export const store = reactive({
             .then(response => {
                 this.latestProjects = response.data.result;
                 console.log('LATEST PROJECTS:', this.latestProjects);
+            }).catch(err => {
+                console.error(err);
+            })
+    },
+
+    getTypes() {
+        axios.get(this.baseUrl + 'api/types')
+            .then(response => {
+                console.log('TYPES:', response);
+                this.types = response.data.result;
+            }).catch(err => {
+                console.error(err);
+            })
+    },
+
+    getTechnologies() {
+        axios.get(this.baseUrl + 'api/technologies')
+            .then(response => {
+                console.log('TECHNOLOGIES:', response);
+                this.technologies = response.data.result;
             }).catch(err => {
                 console.error(err);
             })

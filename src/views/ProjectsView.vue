@@ -30,6 +30,7 @@ export default {
 
         this.store.getProjects()
         this.store.getTypes()
+        this.store.getTechnologies()
 
     }
 
@@ -44,18 +45,37 @@ export default {
 
             <h1 class="text-light text-center my-2">Some of my Projects</h1>
 
-            <div class="dropdown open">
-                <button class="btn dropdown-toggle border border-black shadow" type="button" id="typefilter" data-bs-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+            <!-- TYPE  DROPDOWNFILTER -->
+            <div class="dropdown open d-inline-block mt-4">
+                <button class="btn dropdown-toggle border border-black shadow" type="button" id="typefilter"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by Type
                 </button>
                 <ul class="dropdown-menu border border-black shadow">
 
-                    <router-link class="dropdown-item" :to="{
+                    <router-link class="dropdown-item" v-for="type in this.store.types" :to="{
                         name: 'type',
                         params: { slug: type.slug }
-                    }" v-for="type in this.store.types">
+                    }">
                         {{ type.name }}
+                    </router-link>
+
+                </ul>
+            </div>
+
+            <!-- TECHNOLOGIES DROPWOWN FILTER -->
+            <div class="dropdown open d-inline-block ms-3">
+                <button class="btn dropdown-toggle border border-black shadow" type="button" id="typefilter"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filter by Technologies
+                </button>
+                <ul class="dropdown-menu border border-black shadow">
+
+                    <router-link class="dropdown-item" :to="{
+                        name: 'technology',
+                        params: { slug: technology.slug }
+                    }" v-for="technology in this.store.technologies">
+                        {{ technology.name }}
                     </router-link>
 
                 </ul>
