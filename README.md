@@ -195,12 +195,12 @@ Route::get('projects/{project:slug}', function ($slug) {
 
     if ($project) {
         return response()->json([
-        'success' => 'true',
+        'success' => true,
         'result' => $project 
         ]);
     } else {
         return response()->json([
-        'success' => 'false',
+        'success' => false,
         'result' => 'Project not found' 
         ]);
     }
@@ -239,3 +239,38 @@ mounted() {
             })
     },
 ```
+
+REDIRECT DI UNA PAGINA E 404
+https://router.vuejs.org/guide/essentials/dynamic-matching.html#Catch-all-404-Not-found-Route
+
+GENERARE UN PATH PER QUALSIASI PERCORSO NON CORRISPONDA A QUELLI REGISTRATI:
+```js
+{
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: NotFound
+},
+```
+
+INSERIRE UNA CONDIZIONE NELLA CHIAMATA AXIOS CHE RIDIRIGA ALLA ROTTA CREATA NotFound
+```js
+axios.get(this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`)
+            .then(response => {
+
+                console.log('AXIOS RESPONSE:', response.data.success);
+
+                if (response.data.success) {
+                    console.log('QUERY:', this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`);
+                    console.log('SINGLE PROJECT:', response.data.result);
+                    this.project = response.data.result;
+                } else {
+                    console.log('SINGLE PROJECT QUERY RESULT:', response.data.result);
+                    this.$router.push({ name: 'NotFound' })
+                }
+
+            }).catch(err => {
+                console.error(err);
+            })
+```
+
+CREARE LA PAGINA NotFound.vue

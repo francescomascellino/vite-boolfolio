@@ -31,14 +31,16 @@ export default {
         axios.get(this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`)
             .then(response => {
 
+                console.log('AXIOS RESPONSE:', response.data.success);
+
                 if (response.data.success) {
                     console.log('QUERY:', this.store.baseUrl + this.store.portfolioApi + '/' + `${this.$route.params.slug}`);
                     console.log('SINGLE PROJECT:', response.data.result);
                     this.project = response.data.result;
                 } else {
+                    console.log('SINGLE PROJECT QUERY RESULT:', response.data.result);
                     this.$router.push({ name: 'NotFound' })
                 }
-
 
             }).catch(err => {
                 console.error(err);
