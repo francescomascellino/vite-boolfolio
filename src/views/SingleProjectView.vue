@@ -6,10 +6,6 @@ import axios from 'axios';
 export default {
     name: 'SingleProjectView',
 
-    props: {
-
-    },
-
     data() {
         return {
             store,

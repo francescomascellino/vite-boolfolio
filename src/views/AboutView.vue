@@ -5,18 +5,10 @@ import { store } from '../store';
 export default {
     name: 'AboutView',
 
-    props: {
-
-    },
-
     data() {
         return {
             store,
         }
-
-    },
-
-    methods: {
 
     },
 

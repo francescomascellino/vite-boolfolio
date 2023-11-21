@@ -5,10 +5,6 @@ import { store } from '../store';
 export default {
     name: 'ProjectsPagination',
 
-    props: {
-
-    },
-
     data() {
 
         return {
@@ -18,10 +14,6 @@ export default {
         }
 
     },
-
-    methods: {
-
-    }
 
 }
 

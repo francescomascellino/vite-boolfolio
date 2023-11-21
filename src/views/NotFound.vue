@@ -5,10 +5,6 @@ import { store } from '../store';
 export default {
     name: 'NotFound',
 
-    props: {
-
-    },
-
     data() {
         return {
             store,
@@ -22,9 +18,6 @@ export default {
         getPlaceholderImg(url) {
             return new URL(`${url}`, import.meta.url).href
         },
-
-    },
-    mounted() {
 
     },
 

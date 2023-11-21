@@ -3,14 +3,6 @@
 export default {
     name: 'ContactsView',
 
-    props: {
-
-    },
-
-    methods: {
-
-    }
-
 }
 
 </script>

@@ -24,14 +24,6 @@ export default {
 
     },
 
-    methods: {
-
-    },
-
-    created() {
-
-    },
-
     mounted() {
 
         this.store.getProjects()

@@ -3,14 +3,6 @@
 export default {
     name: 'Navbar',
 
-    props: {
-
-    },
-
-    methods: {
-
-    }
-
 }
 
 </script>
