@@ -65,6 +65,7 @@ export default {
 
             <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-3 justify-content-center">
 
+                <!-- CARDS -->
                 <ProjectCard v-if="type" :project="project" :baseUrl="store.baseUrl" v-for="project in type.projects" />
 
             </div>

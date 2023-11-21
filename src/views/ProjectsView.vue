@@ -81,14 +81,17 @@ export default {
                 </ul>
             </div>
 
+            <!-- PAGINATION -->
             <ProjectsPagination v-if="store.queryData != null" />
 
             <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-3">
 
+                <!-- CARDS -->
                 <ProjectCard :project="project" :baseUrl="store.baseUrl" v-for="project in store.projects" />
 
             </div>
 
+            <!-- PAGINATION -->
             <ProjectsPagination v-if="store.queryData != null" />
 
         </div>

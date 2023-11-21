@@ -33,6 +33,7 @@ export default {
 
     <main>
 
+        <!-- VIEW -->
         <router-view></router-view>
 
     </main>

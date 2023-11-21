@@ -7,7 +7,6 @@ export const store = reactive({
     baseUrl: 'http://127.0.0.1:8000/', // URL BASE DI laravel_api
     portfolioApi: 'api/projects',
     portfolioLatest: '/latest',
-    // protfolioSingle: '/' + `${this.$route.param.slug}`,
     projects: null,
     project: null,
     types: null,
@@ -17,8 +16,8 @@ export const store = reactive({
     latestProjects: null,
 
 
+    // CHIAMATA AXIOS QUANDO LA HOME E' MOUNTED
     getProjects() {
-        // CHIAMATA AXIOS QUANDO App E' MOUNTED
         axios.get(this.baseUrl + this.portfolioApi,
             {
                 params: {
@@ -35,6 +34,7 @@ export const store = reactive({
             })
     },
 
+    // NAVIGAZIONE TRA LE PAGINE DATE DALLA QUERY ALL'API
     navigate(url) {
         axios.get(url)
             .then(response => {
@@ -48,6 +48,7 @@ export const store = reactive({
         this.currentPage = this.queryData.current_page;
     },
 
+    // QUERY PER OTTENERE GLI ULTIMI 3 PROGETTI
     getLatest() {
         axios.get(this.baseUrl + this.portfolioApi + this.portfolioLatest)
             .then(response => {
@@ -58,6 +59,7 @@ export const store = reactive({
             })
     },
 
+    // CHIAMATA AXIOS QUANDO LA HOME E' MOUNTED
     getTypes() {
         axios.get(this.baseUrl + 'api/types')
             .then(response => {
@@ -68,6 +70,7 @@ export const store = reactive({
             })
     },
 
+    // CHIAMATA AXIOS QUANDO LA HOME E' MOUNTED
     getTechnologies() {
         axios.get(this.baseUrl + 'api/technologies')
             .then(response => {

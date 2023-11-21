@@ -6,6 +6,7 @@ body {
     background-color: $darkBackground;
 }
 
+// LINKS
 a,
 router-link {
     text-decoration: none !important;
@@ -21,6 +22,7 @@ router-link:hover {
     color: whitesmoke !important;
 }
 
+// DROPDOWNS
 .dropdown {
 
     button {
@@ -40,6 +42,7 @@ router-link:hover {
 
 }
 
+// BOOTSTRAP BUTTONS
 .btn {
     background: $navbarBackround !important;
     color: whitesmoke !important;
