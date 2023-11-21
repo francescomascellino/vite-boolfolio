@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <nav aria-label="Page navigation" class="my-4 grow-right" v-if="store.queryData != null">
+    <nav aria-label="Page navigation" class="my-4 grow-right">
 
         <ul class="pagination">
 

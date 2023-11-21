@@ -33,7 +33,7 @@ export default {
 
             <div class="img-container position-relative">
 
-                <router-link router-link :to="{
+                <router-link :to="{
                     name: 'project',
                     params: { slug: project.slug }
                 }" class="overlay position-absolute start-0 top-0 w-100 h-100 p-3 d-flex align-items-center">

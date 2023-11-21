@@ -9,10 +9,12 @@ export const store = reactive({
     portfolioLatest: '/latest',
     // protfolioSingle: '/' + `${this.$route.param.slug}`,
     projects: null,
+    project: null,
+    types: null,
     queryData: null,
     queryLinks: null,
     latestProjects: null,
-    project: null,
+
 
     getProjects() {
         // CHIAMATA AXIOS QUANDO App E' MOUNTED
@@ -23,10 +25,22 @@ export const store = reactive({
                 }
             })
             .then(response => {
-                console.log(response);
+                console.log('PROJECTS:', response);
                 this.projects = response.data.result.data;
                 this.queryData = response.data.result;
                 this.queryLinks = response.data.result.links;
+            }).catch(err => {
+                console.error(err);
+            })
+    },
+
+    getTypes() {
+        axios.get(this.baseUrl + 'api/types')
+            .then(response => {
+                console.log('TYPES:', response);
+                this.types = response.data.result.data;
+                // this.queryData = response.data.result;
+                // this.queryLinks = response.data.result.links;
             }).catch(err => {
                 console.error(err);
             })

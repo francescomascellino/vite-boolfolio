@@ -29,7 +29,7 @@ export default {
     <section id="404" class="vh-100 pt-5">
         <div class="container h-100 text-center text-light">
 
-            <h2>This isn't the Project you're looking for...</h2>
+            <h2>This isn't the Page you're looking for...</h2>
 
             <h1><i class="fa-regular fa-face-meh-blank"></i></h1>
 

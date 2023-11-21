@@ -6,6 +6,8 @@ import ProjectCard from '../components/ProjectCard.vue'
 
 import { store } from '../store'
 
+import { Dropdown } from 'bootstrap'
+
 export default {
     name: "ProjectsView",
 
@@ -27,6 +29,7 @@ export default {
     mounted() {
 
         this.store.getProjects()
+        this.store.getTypes()
 
     }
 
@@ -41,7 +44,24 @@ export default {
 
             <h1 class="text-light text-center my-2">Some of my Projects</h1>
 
-            <ProjectsPagination />
+            <div class="dropdown open">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="typefilter" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Filter by Type
+                </button>
+                <ul class="dropdown-menu" style="background-color: black;">
+
+                    <router-link class="dropdown-item" :to="{
+                        name: 'type',
+                        params: { slug: type.slug }
+                    }" v-for="type in this.store.types">
+                        {{ type.name }}
+                    </router-link>
+
+                </ul>
+            </div>
+
+            <ProjectsPagination v-if="store.queryData != null" />
 
             <div class="row flex-row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 mb-3">
 
@@ -49,7 +69,7 @@ export default {
 
             </div>
 
-            <ProjectsPagination />
+            <ProjectsPagination v-if="store.queryData != null" />
 
         </div>
     </section>
