@@ -37,9 +37,8 @@ export default {
 
                 if (response.data.success) {
                     console.log('QUERY:', this.store.baseUrl + 'api/types/' + `${this.$route.params.slug}`);
-                    console.log('SINGLE TYPE:', response.data.result);
+                    console.log('TYPE:', response.data.result);
                     this.type = response.data.result;
-                    console.log('route:', this.$route);
                 } else {
                     console.log('SINGLE TYPE QUERY RESULT:', response.data.result);
                     this.$router.push({ name: 'NotFound' })

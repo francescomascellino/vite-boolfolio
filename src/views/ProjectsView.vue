@@ -45,11 +45,11 @@ export default {
             <h1 class="text-light text-center my-2">Some of my Projects</h1>
 
             <div class="dropdown open">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="typefilter" data-bs-toggle="dropdown"
+                <button class="btn dropdown-toggle border border-black shadow" type="button" id="typefilter" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     Filter by Type
                 </button>
-                <ul class="dropdown-menu" style="background-color: black;">
+                <ul class="dropdown-menu border border-black shadow">
 
                     <router-link class="dropdown-item" :to="{
                         name: 'type',

@@ -21,35 +21,22 @@ router-link:hover {
     color: whitesmoke !important;
 }
 
-main {
-    // border: 2px solid green;
-    // padding-top: 2.5rem;
+.dropdown {
+
+    button {
+        background: $navbarBackround !important;
+        color: whitesmoke !important;
+    }
+
+    ul {
+        background: $navbarBackround !important;
+        color: whitesmoke !important;
+
+        .dropdown-item:hover {
+            background: $navLinkHover !important;
+            transition: 0.5s;
+        }
+    }
+
+
 }
-
-// main:before {
-
-//     display: block;
-//     content: " ";
-//     // margin-top: -2rem;
-//     height: 3rem;
-//     visibility: hidden;
-//     pointer-events: none;
-// }
-
-/* #projects:before {
-    display: block;
-    content: " ";
-    margin-top: -2.5rem;
-    height: 2.5rem;
-    visibility: hidden;
-    pointer-events: none;
-} */
-
-/* #contacts:before {
-    display: block;
-    content: " ";
-    margin-top: -2.5rem;
-    height: 2.5rem;
-    visibility: hidden;
-    pointer-events: none;
-} */
