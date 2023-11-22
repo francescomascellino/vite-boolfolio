@@ -50,9 +50,9 @@ export default {
                     console.log('RESPONSE:', response);
 
                     // ASSEGNA A SUCCESS IL VALORE DI data.success. SE CI SONO callWithErrorHandling, QUESTA SARA' UNDEFINED ED ENTRERA' NELL'IF
-                    const success = response.data.success
+                    const success = response.data.success;
 
-                    if (!this.success) {
+                    if (!success) {
 
                         console.log('Errors:', response.data.errors);
                         // ASSEGNA A this.errors IL VALORE DELLA RESPONSE errors IN MODO DA POTERLI USARE IN PAGINA
@@ -60,6 +60,13 @@ export default {
 
                     } else {
                         console.log(response);
+
+                        /* 'Request failed with status code 500'
+                        exception: "BadMethodCallException"
+                        file: "C:\\MAMP\\htdocs\\Laravel\\laravel-api\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php"
+                        line: 1609
+                        message: "Method Illuminate\\Validation\\Validator::validateMx does not exist." */
+
                     }
 
                 })
