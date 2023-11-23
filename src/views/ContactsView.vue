@@ -11,14 +11,14 @@ export default {
         return {
             store,
 
-            loading: false, // -> NEL SUBBMIT :disabled="loading"
+            loading: false,
             name: '',
             email: '',
             phone: '',
             message: '',
             errors: [],
-            // success: null,
-            // payload: {},
+            success: null,
+
         }
     },
 
@@ -59,16 +59,25 @@ export default {
                         this.errors = response.data.errors;
 
                     } else {
-                        console.log(response);
 
-                        /* 'Request failed with status code 500'
-                        exception: "BadMethodCallException"
-                        file: "C:\\MAMP\\htdocs\\Laravel\\laravel-api\\vendor\\laravel\\framework\\src\\Illuminate\\Validation\\Validator.php"
-                        line: 1609
-                        message: "Method Illuminate\\Validation\\Validator::validateMx does not exist." */
+                        console.log('VALIDATION PASSED:', response);
+
+                        // SVUOTA I CAMPI
+                        this.name = '';
+                        this.email = '';
+                        this.phone = '';
+                        this.message = '';
+                        this.phone = '';
+
+                        this.success = response.data.message;
 
                     }
 
+                    this.loading = false;
+
+                })
+                .catch(err => {
+                    console.error(err);
                 })
 
         }
@@ -139,37 +148,59 @@ export default {
                         <div class="mb-2">
                             <label for="name" class="form-label"> <strong>Name:</strong></label>
                             <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name"
-                                aria-describedby="nameHelper" v-model="name">
+                                aria-describedby="nameHelper" v-model="name" :class="{ 'is-invalid': errors.name }">
 
                             <small id="nameHelper" class="text-light">Let me know you: type your name</small>
+
+                            <small v-if="errors.name" v-for="message in errors.name" id="nameHelper"
+                                class="text-danger d-block"> {{ message }}</small>
                         </div>
 
                         <div class="mb-2">
                             <label for="email" class="form-label"><strong>Email:</strong></label>
                             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId"
-                                placeholder="your@email.com" v-model="email">
+                                placeholder="your@email.com" v-model="email" :class="{ 'is-invalid': errors.email }">
 
                             <small id="emailHelpId" class="form-text text-light">Enter you email adress</small>
+
+                            <small v-if="errors.email" v-for="message in errors.email" id="nameHelper"
+                                class="text-danger d-block"> {{ message }}</small>
+
                         </div>
 
                         <div class="mb-2">
                             <label for="phone" class="form-label"><strong>Phone Number:</strong></label>
                             <input type="tel" name="phone" id="phone" class="form-control" placeholder="999 999 9999"
-                                aria-describedby="phoneHelper" v-model="phone">
+                                aria-describedby="phoneHelper" v-model="phone" :class="{ 'is-invalid': errors.phone }">
 
                             <small id="phoneHelper" class="text-light">Enter your phone number if you wish to be called
                                 back</small>
+
+                            <small v-if="errors.phone" v-for="message in errors.phone" id="nameHelper"
+                                class="text-danger d-block"> {{ message }}</small>
+
                         </div>
 
                         <div class="mb-2">
                             <label for="message" class="form-label"><strong>Message:</strong></label>
                             <textarea class="form-control" name="message" id="message" rows="3"
-                                aria-describedby="messageHelpId" v-model="message"></textarea>
+                                aria-describedby="messageHelpId" v-model="message"
+                                :class="{ 'is-invalid': errors.message }"></textarea>
 
                             <small id="messageHelpId" class="form-text text-light">Leave me a message</small>
+
+                            <small v-if="errors.message" v-for="message in errors.message" id="nameHelper"
+                                class="text-danger d-block"> {{ message }}</small>
+
                         </div>
 
-                        <button class="btn" type="submit">Submit</button>
+                        <button class="btn w-25" type="submit" :disabled="loading">
+
+                            <span v-if="loading">Sending <i class="fa-solid fa-circle-notch fa-spin"></i></span>
+
+                            <span v-else>Send <i class="fa-solid fa-paper-plane"></i></span>
+
+                        </button> <span v-if="success" class="text-success text-capitalize mx-3"> {{ success }}</span>
 
                     </form>
 
