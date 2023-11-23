@@ -101,14 +101,14 @@ export default {
 
             </div>
 
-            <div class="row align-items-center pt-5 grow-left">
+            <div class="row align-items-center pt-6 grow-left">
 
                 <div class="col col-md-6 text-light ">
 
                     <h3>You can find me here:</h3>
 
                     <!-- SOCIAL LINKS -->
-                    <ul class="list-unstyled fs-5">
+                    <ul class="list-unstyled fs-6">
 
                         <li>
                             <a href="https://github.com/francescomascellino" target="blank" class="icon-link"><i
