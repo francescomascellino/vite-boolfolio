@@ -28,7 +28,7 @@ export default {
         <div class="card h-100 shadow border border-black grow-left">
 
             <div class="card-header d-flex align-items-center" style="height: 4rem">
-                <h5>{{ project.title }}</h5>
+                <h5>{{ project.title.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}</h5>
             </div>
 
             <div class="img-container position-relative">

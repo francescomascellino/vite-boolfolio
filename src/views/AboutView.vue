@@ -12,6 +12,15 @@ export default {
 
     },
 
+    methods: {
+
+        // TRASFORMA IL PERCORSO DELL'IMMAGINE LOCALE IN UN URL
+        getPlaceholderImg(url) {
+            return new URL(`${url}`, import.meta.url).href
+        },
+
+    },
+
     mounted() {
         store.getLatest()
     },
@@ -76,11 +85,12 @@ export default {
                             <!-- THUMB -->
                             <div class="me-2">
                                 <img :src="this.store.baseUrl + 'storage/' + project.thumb" :alt="project.title"
-                                    style="height: 100px;" class="border border-end-1 border-start-0 rounded-start-3">
+                                    style="height: 100px;" class="border border-end-1 border-start-0 rounded-start-3"
+                                    @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')">
                             </div>
 
                             <!-- TITLE -->
-                            <div>{{ project.title }}</div>
+                            <div>{{ project.title.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}</div>
 
                         </router-link>
 

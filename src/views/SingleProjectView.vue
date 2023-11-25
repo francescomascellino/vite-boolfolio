@@ -62,7 +62,10 @@ export default {
 
                 <!-- DATA -->
                 <div class="col text-light grow-right">
-                    <h1 class="">{{ project.title }}</h1>
+                    <h1 class="">{{ project.title.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}</h1>
+
+                    <p><strong>Repository name: </strong>{{ project.title }}</p>
+                    
                     <p class=""><strong>Description: </strong>{{ project.description }}</p>
 
                     <p><strong>Type: </strong>
@@ -76,7 +79,7 @@ export default {
                         <ul class="d-flex g-2 list-unstyled" v-for="technology in project.technologies">
 
                             <li class="badge bg-success me-1">
-                                <i class="fa-solid fa-code"></i> {{ technology.name }}
+                                <i class="fa-solid fa-code"></i> {{ technology.name }} {{( technology.pivot.percentage > 0.99 ? technology.pivot.percentage + '%' : '' )}}
                             </li>
 
                         </ul>
