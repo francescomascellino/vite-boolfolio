@@ -55,11 +55,12 @@ export default {
                         <li>🔭 I am currently studing Full-Stack web developement with Boolean Careers<br>📚 I learned <i
                                 class="fa-brands fa-js" style="color: gold"></i> JS,
                             <i class="fa-brands fa-vuejs" style="color: lightgreen"></i> Vue
-                            3, Vite
+                            3, Vite, <i class="fa-brands fa-php" style="color: slateblue;"></i> php, <i
+                                class="fa-brands fa-laravel" style="color: tomato;"></i> Laravel, <i
+                                class="fa-brands fa-bootstrap" style="color: #702cf8;"></i> Bootstrap
                             and <i class="fa-brands fa-sass" style="color: palevioletred;"></i> SASS
                         </li>
-                        <li>💻 I’m currently learning <i class="fa-brands fa-php" style="color: slateblue;"></i> php, <i
-                                class="fa-brands fa-laravel" style="color: tomato;"></i> Laravel and other backend
+                        <li>💻 I’m currently learning <i class="fa-brands fa-react" style="color: #149eca;"></i> React other
                             techologies
                         </li>
                         <li>🤝 I love to work with
@@ -90,7 +91,9 @@ export default {
                             </div>
 
                             <!-- TITLE -->
-                            <div>{{ project.title.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}</div>
+                            <div>
+                                {{ project.title.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}
+                            </div>
 
                         </router-link>
 
@@ -108,5 +111,4 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/partials/About.scss';
-@use '../assets/scss/partials/animations.scss';
-</style>
+@use '../assets/scss/partials/animations.scss';</style>
