@@ -86,7 +86,7 @@ export default {
                             <!-- THUMB -->
                             <div class="me-2">
                                 <img :src="this.store.baseUrl + 'storage/' + project.thumb" :alt="project.title"
-                                    style="height: 100px;" class="border border-end-1 border-start-0 rounded-start-3"
+                                    style="height: 100px; width: 150px;" class="border border-end-1 border-start-0 rounded-start-3"
                                     @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')">
                             </div>
 
