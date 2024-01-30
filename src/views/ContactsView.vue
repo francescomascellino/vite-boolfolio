@@ -213,7 +213,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/scss/partials/animations.scss';
+// @use '../assets/scss/partials/animations.scss';
 
 a:hover {
     text-shadow: 4px 4px 4px #000000;
