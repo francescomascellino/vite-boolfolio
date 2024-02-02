@@ -63,6 +63,26 @@ router-link {
 
 }
 
+// SCROLLBAR
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px $hoverShadow;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $hover;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $hoverShadow;
+    box-shadow: 0px 0px 5px 1px $hoverShadow !important;
+}
+
 // FORM CONTROL FOCUS
 .form-control:focus {
     border-color: $hover !important;
