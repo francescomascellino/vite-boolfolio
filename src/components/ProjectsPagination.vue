@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-    <nav aria-label="Page navigation" class="my-4 grow-right">
+    <nav aria-label="Page navigation" class="my-4">
 
         <ul class="pagination">
 
@@ -39,5 +39,4 @@ export default {
 
 <style lang="scss" scoped>
 @use '../assets/scss/partials/ProjectsPagination.scss';
-// @use '../assets/scss/partials/animations.scss';
 </style>

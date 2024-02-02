@@ -23,3 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 *src/components/backup/
+src/assets/scss/partials/animations.scss

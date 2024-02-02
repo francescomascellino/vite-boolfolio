@@ -38,7 +38,7 @@ export default {
         <div class="container h-100">
 
             <!-- WELCOME -->
-            <div class="row h-25 align-items-center grow-left">
+            <div class="row h-25 align-items-center">
 
                 <div class="col">
                     <h1 class="text-light text-center">Hi there 👋</h1>
@@ -52,7 +52,7 @@ export default {
             <div class="row justify-content-end h-50 align-items-center row-cols-1 row-cols-md-2">
 
                 <!-- TECH STACK -->
-                <div class="col col-md-6 text-light grow-left">
+                <div class="col col-md-6 text-light">
 
                     <h3>💫 About Me:</h3>
                     <ul class="list-unstyled fs-5">
@@ -75,7 +75,7 @@ export default {
                 </div>
 
                 <!-- LATEST PROJECTS -->
-                <div class="col col-md-6 text-light grow-right" v-if="store.latestProjects">
+                <div class="col col-md-6 text-light" v-if="store.latestProjects">
                     <h3>📂 Latest Projects</h3>
 
                     <div class="container-fluid">
@@ -115,5 +115,4 @@ export default {
 </template>
 <style lang="scss" scoped>
 @use '../assets/scss/partials/About.scss';
-// @use '../assets/scss/partials/animations.scss';
 </style>

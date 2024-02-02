@@ -93,7 +93,7 @@ export default {
     <section id="contacts" class="vh-100 pt-5">
         <div class="container h-100 d-flex flex-column">
 
-            <div class="row align-items-center justify-content-start grow-right">
+            <div class="row align-items-center justify-content-start">
 
                 <div class="col">
                     <h1 class="text-light text-center">Are you interested in my work?</h1>
@@ -102,7 +102,7 @@ export default {
 
             </div>
 
-            <div class="row align-items-center pt-6 grow-left">
+            <div class="row align-items-center pt-6">
 
                 <div class="col col-md-6 text-light ">
 
@@ -137,7 +137,7 @@ export default {
 
             </div>
 
-            <div class="row justify-content-end grow-right">
+            <div class="row justify-content-end">
 
                 <div class="col col-md-6 text-light m-2">
 
@@ -214,8 +214,6 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-// @use '../assets/scss/partials/animations.scss';
-
 a:hover {
     text-shadow: rgb(198 231 255) 0 0 5px;
 }
