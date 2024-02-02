@@ -3,7 +3,7 @@
 @use './partials/variables.scss' as *;
 
 body {
-    background-color: $darkBackground;
+    background-color: black;
 }
 
 // LINKS
@@ -11,15 +11,16 @@ a,
 router-link {
     text-decoration: none !important;
     color: whitesmoke !important;
+
+    &:hover,
+    router-link:hover {
+        color: whitesmoke !important;
+    }
+
 }
 
 .disabled {
     color: gray !important;
-}
-
-a:hover,
-router-link:hover {
-    color: whitesmoke !important;
 }
 
 // DROPDOWNS
@@ -35,15 +36,117 @@ router-link:hover {
         color: whitesmoke !important;
 
         .dropdown-item:hover {
-            background: $navLinkHover !important;
+            background: $hover !important;
             transition: 0.5s;
         }
+    }
+
+    &:hover {
+        background-color: $hover;
+        box-shadow: 0px 0px 5px 1px $hoverShadow !important;
+        transition: 0.2s ease;
     }
 
 }
 
 // BOOTSTRAP BUTTONS
 .btn {
+
     background: $navbarBackround !important;
     color: whitesmoke !important;
+
+    &:hover {
+        background-color: $hover;
+        box-shadow: 0px 0px 5px 1px $hoverShadow !important;
+        transition: 0.2s ease;
+    }
+
+}
+
+// FORM CONTROL FOCUS
+.form-control:focus {
+    border-color: $hover !important;
+    box-shadow: 0px 0px 5px 1px $hoverShadow !important;
+}
+
+// VUE-ROUTER TRANSITIONS
+.scale-slide-enter-active,
+.scale-slide-leave-active {
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+// INITIAL ENTER ANIMATION STATE
+.scale-slide-enter-from {
+    left: -100%;
+}
+
+// FINAL ENTER ANIMATION STATE
+.scale-slide-enter-to {
+    box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.40);
+    left: 0%;
+}
+
+// INITIAL EXIT ANIMATION STATE
+.scale-slide-leave-from {
+    transform: scale(1);
+}
+
+// FINAL EXIT ANIMATION STATE
+.scale-slide-leave-to {
+    filter: blur(2px);
+    transform: scale(0.8);
+}
+
+// BLUR
+/* .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+} */
+
+#blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+
+    backdrop-filter: blur(12vmax);
+
+}
+
+// BLOB
+#blob {
+    height: 30vmax;
+    aspect-ratio: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgba(137, 137, 186, 1), $hoverShadow);
+    animation: blobRotate 20s infinite;
+    opacity: 0.8;
+    z-index: -2;
+}
+
+@keyframes blobRotate {
+    from {
+        rotate: 0deg;
+    }
+
+    50% {
+        scale: 1 1.5;
+    }
+
+    to {
+        rotate: 360deg;
+    }
 }

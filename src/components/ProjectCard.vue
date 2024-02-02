@@ -6,7 +6,7 @@ export default {
     props: {
 
         project: Object,
-        baseUrl: String,
+        baseUrl: String
 
     },
 
@@ -15,7 +15,7 @@ export default {
         // TRASFORMA IL PERCORSO DELL'IMMAGINE LOCALE IN UN URL
         getPlaceholderImg(url) {
             return new URL(`${url}`, import.meta.url).href
-        },
+        }
 
     }
 
@@ -25,7 +25,7 @@ export default {
 
 <template>
     <div class="col">
-        <div class="card h-100 shadow border border-black grow-left">
+        <div class="card h-100 shadow border border-black grow-left projectCard">
 
             <div class="card-header d-flex align-items-center" style="height: 4rem">
                 <h5>{{ project.title.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') }}</h5>
@@ -77,12 +77,12 @@ export default {
                     </ul>
                 </div>
 
-                <p v-if="project.github"><a :href="project.github" class="text-decoration-none text-black icon-link"
+                <p v-if="project.github"><a :href="project.github" class="text-decoration-none text-light icon-link"
                         target="blank"><i class="fa-brands fa-github"></i> View on GitHub</a></p>
                 <p v-else><i class="fa-brands fa-github"></i> No Repository Avaiable <i
                         class="fa-regular fa-face-frown"></i></p>
 
-                <p v-if="project.link"><a :href="project.link" class="text-decoration-none text-black icon-link"
+                <p v-if="project.link"><a :href="project.link" class="text-decoration-none text-light icon-link"
                         target="blank"><i class="fa-solid fa-link"></i> Visit the Website</a></p>
                 <p v-else><i class="fa-solid fa-link"></i> This Project has not been published yet <i
                         class="fa-regular fa-face-frown"></i>

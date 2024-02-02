@@ -6,8 +6,11 @@ export default {
     name: 'NotFound',
 
     data() {
+
         return {
-            store,
+
+            store
+
         }
 
     },
@@ -17,9 +20,9 @@ export default {
         // TRASFORMA IL PERCORSO DELL'IMMAGINE LOCALE IN UN URL
         getPlaceholderImg(url) {
             return new URL(`${url}`, import.meta.url).href
-        },
+        }
 
-    },
+    }
 
 }
 

@@ -4,22 +4,29 @@
 
     background: $navbarBackround;
 
-    a, router-link {
+    z-index: 1;
+
+    a,
+    router-link {
+
         margin: 0 1rem;
         padding: 0.5rem;
         font-size: 1rem;
         font-weight: bold;
         vertical-align: middle;
-        border-radius: 5px;
+        border-radius: 2px;
+        border-top: 2px solid transparent;
+        border-bottom: 2px solid transparent;
 
+        &:hover {
+            border-bottom: 2px solid $hover !important;
+            transition: 0.2s ease;
+        }
+
+        &.selected {
+            border-bottom: 2px solid $hover !important;
+            box-shadow: 0px 1px 0px 0px $hoverShadow !important;
+        }
     }
 
-    .disabled {
-        // color: gray !important;
-    }
-
-    a:hover, router-link:hover {
-        background-color: $navLinkHover;
-        transition: 0.5s ease;
-    }
 }

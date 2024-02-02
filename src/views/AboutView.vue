@@ -7,7 +7,9 @@ export default {
 
     data() {
         return {
-            store,
+
+            store
+
         }
 
     },
@@ -17,12 +19,14 @@ export default {
         // TRASFORMA IL PERCORSO DELL'IMMAGINE LOCALE IN UN URL
         getPlaceholderImg(url) {
             return new URL(`${url}`, import.meta.url).href
-        },
+        }
 
     },
 
     mounted() {
-        store.getLatest()
+
+        store.getLatest();
+
     },
 
 }
@@ -87,7 +91,7 @@ export default {
                             <div class="me-2">
                                 <img :src="this.store.baseUrl + 'storage/' + project.thumb" :alt="project.title"
                                     style="height: 100px; width: 150px;"
-                                    class="border border-end-1 border-start-0 rounded-start-3"
+                                    class="border border-end-1 border-start-0 rounded-start-3 shadow-lg latestThumb"
                                     @error="$event.target.src = getPlaceholderImg('../assets/img/404.jpg')">
                             </div>
 
@@ -109,7 +113,6 @@ export default {
         </div>
     </section>
 </template>
-
 <style lang="scss" scoped>
 @use '../assets/scss/partials/About.scss';
 // @use '../assets/scss/partials/animations.scss';

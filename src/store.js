@@ -38,7 +38,7 @@ export const store = reactive({
     navigate(url) {
         axios.get(url)
             .then(response => {
-                console.log(response);
+                console.log("RESPONSE:", response);
                 this.projects = response.data.result.data;
                 this.queryData = response.data.result;
                 this.queryLinks = response.data.result.links;

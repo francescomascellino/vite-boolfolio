@@ -11,13 +11,14 @@ export default {
         return {
             store,
 
+            // FORM
             loading: false,
             name: '',
             email: '',
             phone: '',
             message: '',
             errors: [],
-            success: null,
+            success: null
 
         }
     },
@@ -216,6 +217,6 @@ export default {
 // @use '../assets/scss/partials/animations.scss';
 
 a:hover {
-    text-shadow: 4px 4px 4px #000000;
+    text-shadow: rgb(198 231 255) 0 0 5px;
 }
 </style>

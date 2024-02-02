@@ -12,8 +12,10 @@ export default {
     name: "ProjectsView",
 
     components: {
+
         ProjectsPagination,
-        ProjectCard,
+        ProjectCard
+
     },
 
     data() {
@@ -21,6 +23,11 @@ export default {
         return {
 
             store,
+
+            //SLIDER
+            innerStyles: {},
+            step: '',
+            transitioning: false
 
         }
 
@@ -33,7 +40,6 @@ export default {
         this.store.getTechnologies()
 
     }
-
 }
 
 </script>
@@ -46,7 +52,7 @@ export default {
             <h1 class="text-light text-center my-2">Some of my Projects</h1>
 
             <!-- TYPE  DROPDOWNFILTER -->
-            <div class="dropdown open d-inline-block mt-4">
+            <div class="dropdown open d-inline-block mt-4 me-3">
                 <button class="btn dropdown-toggle border border-black shadow" type="button" id="typefilter"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by Type
@@ -64,7 +70,7 @@ export default {
             </div>
 
             <!-- TECHNOLOGIES DROPWOWN FILTER -->
-            <div class="dropdown open d-inline-block ms-3">
+            <div class="dropdown open d-inline-block mt-4">
                 <button class="btn dropdown-toggle border border-black shadow" type="button" id="typefilter"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Filter by Technologies

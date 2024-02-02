@@ -1,5 +1,20 @@
 @use './variables.scss' as *;
 
+.projectCard {
+    background: $navbarBackround;
+    color: white;
+
+    &:hover {
+        background-color: $hover;
+        box-shadow: 0px 0px 5px 1px $hoverShadow !important;
+        transition: 0.2s ease;
+    }
+
+    a:hover {
+        text-shadow: $hoverShadow 0 0 5px;
+    }
+}
+
 .overlay {
     background-color: $projectCardOverlay;
     text-align: justify;

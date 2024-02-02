@@ -9,13 +9,17 @@ export default {
     name: 'SingleTypeView',
 
     components: {
-        ProjectCard,
+
+        ProjectCard
+
     },
 
     data() {
         return {
+
             store,
-            type: null,
+            type: null
+
         }
 
     },
@@ -25,11 +29,12 @@ export default {
         // TRASFORMA IL PERCORSO DELL'IMMAGINE LOCALE IN UN URL
         getPlaceholderImg(url) {
             return new URL(`${url}`, import.meta.url).href
-        },
+        }
 
     },
+
     mounted() {
-        // `http://127.0.0.1:8000/api/types/${this.$route.params.slug}`
+
         axios.get(this.store.baseUrl + 'api/types/' + `${this.$route.params.slug}`)
             .then(response => {
 
@@ -47,6 +52,7 @@ export default {
             }).catch(err => {
                 console.error(err);
             })
+
     },
 
 }

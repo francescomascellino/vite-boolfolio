@@ -6,16 +6,21 @@ import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue'
 
 export default {
+
     name: 'SingleTypeView',
 
     components: {
-        ProjectCard,
+
+        ProjectCard
+
     },
 
     data() {
         return {
+
             store,
-            technology: null,
+            technology: null
+
         }
 
     },
@@ -29,7 +34,7 @@ export default {
 
     },
     mounted() {
-        // `http://127.0.0.1:8000/api/types/${this.$route.params.slug}`
+
         axios.get(this.store.baseUrl + 'api/technologies/' + `${this.$route.params.slug}`)
             .then(response => {
 
@@ -47,6 +52,7 @@ export default {
             }).catch(err => {
                 console.error(err);
             })
+
     },
 
 }
